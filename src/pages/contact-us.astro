@@ -1,0 +1,106 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ArchFrame from '../components/ArchFrame.astro';
+import { site } from '../data/site';
+
+const sent = Astro.url.searchParams.get('sent') === '1';
+const mapQuery = encodeURIComponent(`${site.address} ${site.addressLine2}`);
+const nextUrl = `${site.url}/contact-us/?sent=1`;
+---
+
+<SiteLayout
+  title={`Contact Us – ${site.name}`}
+  description={`Contact ${site.name} in Eldersburg, MD. Reservations, questions, and feedback welcome.`}
+  current="/contact-us/"
+>
+  <PageHero
+    eyebrow="Leave a message"
+    title='Let us Know your <span class="accent">Comments.</span>'
+    lead="If you have any questions or concerns about our restaurant, please contact us and we will respond promptly."
+  />
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="meta-list reveal">
+        <div>
+          <h3>Phone</h3>
+          <p><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></p>
+        </div>
+        <div>
+          <h3>Location</h3>
+          <p>{site.address}<br />{site.addressLine2}</p>
+        </div>
+        <div>
+          <h3>Email</h3>
+          <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+        </div>
+        <div>
+          <h3>Website</h3>
+          <p>www.vakamoo.com</p>
+        </div>
+        <ArchFrame class="map-frame">
+          <div class="map">
+            <iframe
+              title="VAKAMOO location"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src={`https://maps.google.com/maps?q=${mapQuery}&t=m&z=15&output=embed&iwloc=near`}
+            ></iframe>
+          </div>
+        </ArchFrame>
+      </div>
+
+      <div class="reveal">
+        {
+          sent && (
+            <div class="form-success" role="status">
+              Thanks — your message was sent. We’ll get back to you soon.
+            </div>
+          )
+        }
+        <ArchFrame class="form-frame">
+          <form class="form form-in-arch" method="POST" action={`https://formsubmit.co/${site.email}`}>
+            <input type="hidden" name="_subject" value="VAKAMOO — Contact Form" />
+            <input type="hidden" name="_next" value={nextUrl} />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your full name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Email" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="Phone number" required />
+              </div>
+              <div class="field">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text" placeholder="Subject" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Message" required></textarea>
+            </div>
+            <label class="check">
+              <input type="checkbox" name="privacy_accepted" value="yes" />
+              <span>
+                I have read and agree to the{' '}
+                <a href="/privacy-policy/" class="link-underline">Privacy Policy</a>.
+              </span>
+            </label>
+            <button class="btn" type="submit">Send Message</button>
+          </form>
+        </ArchFrame>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

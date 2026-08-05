@@ -1,0 +1,25 @@
+---
+import DishList from '../DishList.astro';
+import { dishes } from '../../data/site';
+---
+
+<section class="section section-tight-top">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our Menu</p>
+      <h2>Classic Recipes and Special <span class="accent">Delightful Dishes.</span></h2>
+      <p class="lead">
+        Savor timeless classics and unique dishes, crafted with passion to delight every
+        discerning palate daily.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <DishList dishes={dishes} />
+    </div>
+
+    <div class="stack-lg reveal">
+      <a class="btn" href="/menu/">All Menu</a>
+    </div>
+  </div>
+</section>

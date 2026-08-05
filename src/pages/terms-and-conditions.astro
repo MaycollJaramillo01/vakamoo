@@ -1,0 +1,34 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { site } from '../data/site';
+import legal from '../data/legal.json';
+
+const blocks = legal['terms-and-conditions'];
+---
+
+<SiteLayout
+  title={`Terms & Conditions – ${site.name}`}
+  description={`Terms and conditions for dining and using ${site.name} services.`}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Legal</p>
+      <h1>Terms & Conditions</h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container legal-prose">
+      {
+        blocks.map((block) =>
+          block.type === 'h2' ? (
+            <h2>{block.text}</h2>
+          ) : block.type === 'li' ? (
+            <p class="legal-bullet">{block.text}</p>
+          ) : (
+            <p>{block.text}</p>
+          )
+        )
+      }
+    </div>
+  </section>
+</SiteLayout>

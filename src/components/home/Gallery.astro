@@ -1,0 +1,81 @@
+---
+import { gallery } from '../../data/site';
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Our Gallery</p>
+      <h2>A Glimpse Into Our <span class="accent">Kitchen Craft.</span></h2>
+      <p class="lead center">
+        Discover the artistry, passion, and precision behind every dish through a curated visual
+        culinary journey.
+      </p>
+    </div>
+    <div class="gallery-grid reveal" data-gallery>
+      {
+        gallery.map((item, i) => (
+          <button
+            type="button"
+            class="gallery-item"
+            data-gallery-open
+            data-index={i}
+            data-full={item.full}
+            aria-label={`View gallery image ${i + 1}`}
+          >
+            <img src={item.thumb} alt="" width="768" height="576" loading="lazy" />
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="gallery-lightbox" hidden>
+  <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close">×</button>
+  <button type="button" class="lightbox-nav lightbox-prev" data-lightbox-prev aria-label="Previous">‹</button>
+  <img class="lightbox-img" alt="" />
+  <button type="button" class="lightbox-nav lightbox-next" data-lightbox-next aria-label="Next">›</button>
+</div>
+
+<script>
+  const galleryRoot = document.querySelector('[data-gallery]');
+  const lightbox = document.getElementById('gallery-lightbox');
+  const lightboxImg = lightbox?.querySelector('.lightbox-img');
+  const items = galleryRoot
+    ? Array.from(galleryRoot.querySelectorAll('[data-gallery-open]'))
+    : [];
+  let current = 0;
+
+  function openLightbox(index) {
+    if (!lightbox || !lightboxImg || !items.length) return;
+    current = (index + items.length) % items.length;
+    const full = items[current].getAttribute('data-full') || '';
+    lightboxImg.setAttribute('src', full);
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  items.forEach((btn, i) => {
+    btn.addEventListener('click', () => openLightbox(i));
+  });
+
+  lightbox?.querySelector('[data-lightbox-close]')?.addEventListener('click', closeLightbox);
+  lightbox?.querySelector('[data-lightbox-prev]')?.addEventListener('click', () => openLightbox(current - 1));
+  lightbox?.querySelector('[data-lightbox-next]')?.addEventListener('click', () => openLightbox(current + 1));
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox || lightbox.hidden) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') openLightbox(current - 1);
+    if (e.key === 'ArrowRight') openLightbox(current + 1);
+  });
+</script>

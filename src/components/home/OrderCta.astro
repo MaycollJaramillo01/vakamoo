@@ -1,0 +1,15 @@
+---
+import { orderCta } from '../../data/site';
+---
+
+<section class="band order-band">
+  <div class="container band-inner reveal">
+    <div>
+      <h2>
+        Experience premium flavors when you <span class="accent">order right now.</span>
+      </h2>
+      <p class="lead stack-sm">{orderCta.body}</p>
+    </div>
+    <a class="btn" href={orderCta.href}>{orderCta.cta}</a>
+  </div>
+</section>

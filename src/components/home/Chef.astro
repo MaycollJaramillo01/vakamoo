@@ -1,0 +1,20 @@
+---
+import { site, chefBio } from '../../data/site';
+---
+
+<section class="section">
+  <div class="container split reveal">
+    <div class="split-media">
+      <img src={chefBio.image} alt={chefBio.name} width="800" height="1000" loading="lazy" />
+    </div>
+    <div>
+      <p class="eyebrow">{chefBio.name}</p>
+      <h2>“{chefBio.title}”</h2>
+      {chefBio.paragraphs.map((p) => <p class="prose stack-sm">{p}</p>)}
+      <div class="hero-actions stack-lg">
+        <a class="btn" href="/menu/">See Our Menu</a>
+        <a class="btn btn-ghost" href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
+      </div>
+    </div>
+  </div>
+</section>

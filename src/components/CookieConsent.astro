@@ -1,0 +1,175 @@
+<div class="cookie-root" data-cookie-root hidden>
+  <div class="cookie-backdrop" data-cookie-backdrop></div>
+  <div class="cookie-panel" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-view" data-cookie-view="info">
+      <div class="cookie-header" id="cookie-title">Cookies</div>
+      <div class="cookie-body">
+        <p>
+          We serve cookies. If you think that's ok, just click "Accept all". You can also choose what
+          kind of cookies you want by clicking "Settings".
+          <a href="/cookies-policy/">Read our cookie policy</a>
+        </p>
+      </div>
+      <div class="cookie-actions">
+        <button type="button" class="cookie-btn cookie-btn-ghost" data-cookie-settings>
+          Settings
+        </button>
+        <button type="button" class="cookie-btn cookie-btn-primary" data-cookie-accept-all>
+          Accept all
+        </button>
+      </div>
+    </div>
+
+    <div class="cookie-view" data-cookie-view="settings" hidden>
+      <div class="cookie-header">Cookies</div>
+      <div class="cookie-body">
+        <p>
+          Choose what kind of cookies to accept. Your choice will be saved for one year.
+          <a href="/cookies-policy/">Read our cookie policy</a>
+        </p>
+      </div>
+      <ul class="cookie-options">
+        <li>
+          <div class="cookie-option is-locked">
+            <div>
+              <strong>Necessary</strong>
+              <span>These cookies are not optional. They are needed for the website to function.</span>
+            </div>
+            <span class="cookie-switch is-on is-disabled" aria-hidden="true"><i></i></span>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="cookie-option" data-cookie-toggle="statistics" aria-pressed="false">
+            <div>
+              <strong>Statistics</strong>
+              <span
+                >In order for us to improve the website's functionality and structure, based on how
+                the website is used.</span
+              >
+            </div>
+            <span class="cookie-switch" aria-hidden="true"><i></i></span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="cookie-option" data-cookie-toggle="experience" aria-pressed="false">
+            <div>
+              <strong>Experience</strong>
+              <span
+                >In order for our website to perform as well as possible during your visit. If you
+                refuse these cookies, some functionality will disappear from the website.</span
+              >
+            </div>
+            <span class="cookie-switch" aria-hidden="true"><i></i></span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="cookie-option" data-cookie-toggle="marketing" aria-pressed="false">
+            <div>
+              <strong>Marketing</strong>
+              <span
+                >By sharing your interests and behavior as you visit our site, you increase the
+                chance of seeing personalized content and offers.</span
+              >
+            </div>
+            <span class="cookie-switch" aria-hidden="true"><i></i></span>
+          </button>
+        </li>
+      </ul>
+      <div class="cookie-actions">
+        <button type="button" class="cookie-btn cookie-btn-ghost" data-cookie-save>Save</button>
+        <button type="button" class="cookie-btn cookie-btn-primary" data-cookie-accept-all>
+          Accept all
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = 'vakamoo-cookie-consent';
+  const YEAR_MS = 365 * 24 * 60 * 60 * 1000;
+
+  const root = document.querySelector('[data-cookie-root]');
+  if (root) {
+    const infoView = root.querySelector('[data-cookie-view="info"]');
+    const settingsView = root.querySelector('[data-cookie-view="settings"]');
+    const toggles = Array.from(root.querySelectorAll('[data-cookie-toggle]'));
+
+    function readConsent() {
+      try {
+        const raw = localStorage.getItem(KEY);
+        if (!raw) return null;
+        const data = JSON.parse(raw);
+        if (!data?.expires || Date.now() > data.expires) {
+          localStorage.removeItem(KEY);
+          return null;
+        }
+        return data;
+      } catch {
+        return null;
+      }
+    }
+
+    function saveConsent(prefs) {
+      localStorage.setItem(
+        KEY,
+        JSON.stringify({
+          necessary: true,
+          statistics: !!prefs.statistics,
+          experience: !!prefs.experience,
+          marketing: !!prefs.marketing,
+          expires: Date.now() + YEAR_MS,
+        })
+      );
+      hide();
+    }
+
+    function show() {
+      root.hidden = false;
+      document.body.classList.add('cookie-open');
+    }
+
+    function hide() {
+      root.hidden = true;
+      document.body.classList.remove('cookie-open');
+      document.dispatchEvent(new CustomEvent('vakamoo:cookies-ready'));
+    }
+
+    function showSettings() {
+      infoView.hidden = true;
+      settingsView.hidden = false;
+    }
+
+    function setToggle(btn, on) {
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.classList.toggle('is-on', on);
+      btn.querySelector('.cookie-switch')?.classList.toggle('is-on', on);
+    }
+
+    function currentPrefs() {
+      return {
+        statistics: toggles.find((t) => t.getAttribute('data-cookie-toggle') === 'statistics')?.classList.contains('is-on'),
+        experience: toggles.find((t) => t.getAttribute('data-cookie-toggle') === 'experience')?.classList.contains('is-on'),
+        marketing: toggles.find((t) => t.getAttribute('data-cookie-toggle') === 'marketing')?.classList.contains('is-on'),
+      };
+    }
+
+    toggles.forEach((btn) => {
+      btn.addEventListener('click', () => setToggle(btn, !btn.classList.contains('is-on')));
+    });
+
+    root.querySelector('[data-cookie-settings]')?.addEventListener('click', showSettings);
+    root.querySelectorAll('[data-cookie-accept-all]').forEach((btn) => {
+      btn.addEventListener('click', () =>
+        saveConsent({ statistics: true, experience: true, marketing: true })
+      );
+    });
+    root.querySelector('[data-cookie-save]')?.addEventListener('click', () => saveConsent(currentPrefs()));
+
+    if (!readConsent()) {
+      show();
+    } else {
+      document.dispatchEvent(new CustomEvent('vakamoo:cookies-ready'));
+    }
+  }
+</script>

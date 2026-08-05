@@ -1,0 +1,90 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import DishList from '../components/DishList.astro';
+import { site, aboutCopy, team, dishes } from '../data/site';
+---
+
+<SiteLayout
+  title={`About Us – ${site.name}`}
+  description="Meet the VAKAMOO kitchen — Japanese and Caribbean fusion crafted by Chef Mitsuhisa Nishio, El Ninja."
+  current="/about-us/"
+>
+  <PageHero
+    eyebrow="About VAKAMOO"
+    title='Two cultures. One kitchen. <span class="accent">Endless flavor.</span>'
+  />
+
+  <section class="section about-story">
+    <div class="container about-story-grid reveal">
+      <div class="about-story-copy">
+        <p class="eyebrow">Our story</p>
+        <div class="about-story-text">
+          {aboutCopy.paragraphs.map((p) => <p>{p}</p>)}
+        </div>
+        <div class="hero-actions stack-lg">
+          <a class="btn" href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
+          <a class="btn btn-ghost" href="/contact-us/">Contact</a>
+        </div>
+      </div>
+
+      <ul class="about-pillars">
+        {
+          aboutCopy.pillars.map((item, i) => (
+            <li>
+              <span class="about-pillar-num">{String(i + 1).padStart(2, '0')}</span>
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section team-section section-tight-top">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">The kitchen</p>
+        <h2>Distinguished culinary experts</h2>
+      </div>
+      <div class="team reveal">
+        {
+          team.map((person) => (
+            <figure class="chef-portrait">
+              <div class="chef-arch">
+                <span class="chef-dot chef-dot-tl" aria-hidden="true" />
+                <span class="chef-dot chef-dot-ml" aria-hidden="true" />
+                <span class="chef-dot chef-dot-bl" aria-hidden="true" />
+                <span class="chef-dot chef-dot-tr" aria-hidden="true" />
+                <span class="chef-dot chef-dot-mr" aria-hidden="true" />
+                <span class="chef-dot chef-dot-br" aria-hidden="true" />
+                <div class="chef-arch-inner">
+                  <img src={person.image} alt={person.name} width="600" height="800" loading="lazy" />
+                </div>
+              </div>
+              <figcaption>
+                <h3>
+                  {person.name}
+                  {person.alias ? ` ${person.alias}` : ''}
+                </h3>
+                <p>{person.role}</p>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight-top">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Signatures</p>
+        <h2>Dishes worth knowing</h2>
+      </div>
+      <div class="reveal">
+        <DishList dishes={dishes} />
+      </div>
+    </div>
+  </section>
+</SiteLayout>

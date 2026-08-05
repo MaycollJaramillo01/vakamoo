@@ -1,0 +1,34 @@
+---
+import { whyChoose } from '../../data/site';
+---
+
+<section class="section why-section">
+  <div class="container reveal">
+    <div class="why-head">
+      <div>
+        <p class="eyebrow">{whyChoose.eyebrow}</p>
+        <h2>
+          Why Our Restaurant Stands <span class="accent">Above the Rest.</span>
+        </h2>
+      </div>
+      <p class="lead">{whyChoose.body}</p>
+    </div>
+
+    <div class="why-grid">
+      <ul class="why-list">
+        {whyChoose.points.map((point) => <li>{point}</li>)}
+      </ul>
+
+      <div class="why-stats">
+        {
+          whyChoose.stats.map((stat) => (
+            <div class="why-stat">
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

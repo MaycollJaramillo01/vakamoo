@@ -1,0 +1,26 @@
+---
+import { faqs } from '../../data/site';
+---
+
+<section class="section faq-section">
+  <div class="container faq-grid reveal">
+    <div class="faq-intro">
+      <p class="eyebrow">FAQs</p>
+      <h2>Your Dining Questions Answered <span class="accent">Here Efficiently.</span></h2>
+      <p class="lead">
+        Our team provides clear, helpful answers to all your dining inquiries for a seamless
+        experience.
+      </p>
+    </div>
+    <div class="faq-list">
+      {
+        faqs.map((item) => (
+          <details class="faq-item">
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

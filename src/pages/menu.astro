@@ -1,0 +1,116 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../data/site';
+import { menuCategoriesFull, menuDisclaimer } from '../data/menu';
+---
+
+<SiteLayout
+  title={`Menu – ${site.name}`}
+  description="Browse the VAKAMOO menu — appetizers, Sushi Aplatanao, Ninja Platters, traditional rolls, and main courses."
+  current="/menu/"
+>
+  <PageHero
+    eyebrow="Our Menu"
+    title='Two cultures. One kitchen. <span class="accent">Endless flavor.</span>'
+    lead="Crafted with passion and artistic flair — browse by category."
+  />
+
+  <section class="section menu-page">
+    <div class="container">
+      <p class="menu-disclaimer reveal">{menuDisclaimer}</p>
+
+      <div class="menu-tabs reveal" data-menu-tabs>
+        <div class="menu-tablist" role="tablist" aria-label="Menu categories">
+          {
+            menuCategoriesFull.map((cat, i) => (
+              <button
+                type="button"
+                class:list={['menu-tab', i === 0 && 'is-active']}
+                role="tab"
+                id={`tab-${cat.id}`}
+                aria-selected={i === 0 ? 'true' : 'false'}
+                aria-controls={`panel-${cat.id}`}
+                data-tab={cat.id}
+              >
+                {cat.label}
+              </button>
+            ))
+          }
+        </div>
+
+        {
+          menuCategoriesFull.map((cat, i) => (
+            <div
+              class:list={['menu-panel', i === 0 && 'is-active']}
+              role="tabpanel"
+              id={`panel-${cat.id}`}
+              aria-labelledby={`tab-${cat.id}`}
+              data-panel={cat.id}
+              hidden={i !== 0}
+            >
+              {cat.note && <p class="menu-note">{cat.note}</p>}
+              <div class="menu-items">
+                {cat.items.map((item) => (
+                  <article class="menu-item">
+                    <div class="menu-item-top">
+                      <h3>
+                        {item.name}
+                        {item.raw && (
+                          <span class="raw-mark" title="May contain raw or undercooked ingredients">
+                            ***
+                          </span>
+                        )}
+                      </h3>
+                      <span class="menu-item-price">{item.price}</span>
+                    </div>
+                    {item.description && <p>{item.description}</p>}
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="menu-footnote reveal">
+        Questions about dietary needs?{' '}
+        <a href="/contact-us/">Contact us</a> — we’re happy to help.
+      </p>
+    </div>
+  </section>
+</SiteLayout>
+
+<script>
+  const root = document.querySelector('[data-menu-tabs]');
+  if (root) {
+    const tabs = Array.from(root.querySelectorAll('[data-tab]'));
+    const panels = Array.from(root.querySelectorAll('[data-panel]'));
+
+    const activate = (id) => {
+      tabs.forEach((tab) => {
+        const on = tab.getAttribute('data-tab') === id;
+        tab.classList.toggle('is-active', on);
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach((panel) => {
+        const on = panel.getAttribute('data-panel') === id;
+        panel.classList.toggle('is-active', on);
+        panel.hidden = !on;
+      });
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const id = tab.getAttribute('data-tab');
+        if (id) activate(id);
+      });
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+    if (cat && root.querySelector(`[data-tab="${cat}"]`)) {
+      activate(cat);
+    }
+  }
+</script>

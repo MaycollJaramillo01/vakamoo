@@ -1,0 +1,51 @@
+---
+import { site, nav } from '../data/site';
+
+interface Props {
+  current?: string;
+}
+
+const { current = '/' } = Astro.props;
+---
+
+<header class="site-header" data-header>
+  <div class="container">
+    <a class="logo" href="/" aria-label={`${site.name} home`}>
+      <img src={site.logo} alt={site.name} width="150" height="68" />
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" data-nav aria-label="Primary">
+      {
+        nav.map((item) => (
+          <a href={item.href} aria-current={current === item.href ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a class="btn header-cta" href="/contact-us/">Contact Us</a>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-header]');
+  const toggle = document.querySelector('[data-nav-toggle]');
+  const nav = document.querySelector('[data-nav]');
+
+  const onScroll = () => {
+    header?.classList.toggle('is-scrolled', window.scrollY > 12);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  toggle?.addEventListener('click', () => {
+    nav?.classList.toggle('is-open');
+  });
+</script>

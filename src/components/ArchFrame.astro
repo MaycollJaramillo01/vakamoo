@@ -1,0 +1,20 @@
+---
+interface Props {
+  class?: string;
+  variant?: 'portrait' | 'panel';
+}
+
+const { class: className = '', variant = 'panel' } = Astro.props;
+---
+
+<div class:list={['arch-frame', `arch-frame--${variant}`, className]}>
+  <span class="chef-dot chef-dot-tl" aria-hidden="true"></span>
+  <span class="chef-dot chef-dot-ml" aria-hidden="true"></span>
+  <span class="chef-dot chef-dot-bl" aria-hidden="true"></span>
+  <span class="chef-dot chef-dot-tr" aria-hidden="true"></span>
+  <span class="chef-dot chef-dot-mr" aria-hidden="true"></span>
+  <span class="chef-dot chef-dot-br" aria-hidden="true"></span>
+  <div class="arch-frame-inner">
+    <slot />
+  </div>
+</div>

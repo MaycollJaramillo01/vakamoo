@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://vakamoo.com/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://vakamoo.com/menu/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://vakamoo.com/about-us/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vakamoo.com/contact-us/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vakamoo.com/join-us/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vakamoo.com/privacy-policy/</loc>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://vakamoo.com/terms-and-conditions/</loc>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://vakamoo.com/cookies-policy/</loc>
+    <changefreq>yearly</changefreq>
+  </url>
+</urlset>

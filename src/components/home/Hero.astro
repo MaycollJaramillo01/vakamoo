@@ -1,0 +1,41 @@
+---
+import { site, socialProof } from '../../data/site';
+---
+
+<section class="hero">
+  <div class="hero-media" aria-hidden="true">
+    <img
+      src={site.heroImage}
+      alt=""
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <img
+        class="hero-logo"
+        src={site.logo}
+        alt={site.name}
+        width="280"
+        height="127"
+      />
+      <h1>Japanese & Caribbean Fusion</h1>
+      <p class="support accent-line">Two cultures. One Kitchen. Endless flavor.</p>
+      <p class="support">
+        Come and taste the fusion, where Asia meets the Caribbean.<br />
+        Perfect blend of Sushi and Sazón.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="/menu/">View Menu</a>
+        <a class="btn btn-ghost" href="/contact-us/">Reserve</a>
+      </div>
+      <p class="hero-proof">{socialProof.label}</p>
+      <p class="hero-years">
+        <strong>{socialProof.years.value}</strong>
+        <span>{socialProof.years.label}</span>
+      </p>
+    </div>
+  </div>
+</section>

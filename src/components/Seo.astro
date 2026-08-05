@@ -1,0 +1,68 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = site.description,
+  image = site.ogImage,
+  type = 'website',
+  noindex = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImage = new URL(image, site.url).href;
+const phoneDigits = site.phone.replace(/[^\d+]/g, '');
+
+const restaurantSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  telephone: phoneDigits,
+  email: site.email,
+  image: ogImage,
+  servesCuisine: ['Japanese', 'Caribbean', 'Fusion'],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address,
+    addressLocality: 'Eldersburg',
+    addressRegion: 'MD',
+    postalCode: '21784',
+    addressCountry: 'US',
+  },
+  sameAs: [site.social.facebook, site.social.instagram],
+};
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+<link rel="icon" href={site.favicon} type="image/png" />
+<link rel="apple-touch-icon" href={site.favicon} />
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<script type="application/ld+json" set:html={JSON.stringify(restaurantSchema)} />
