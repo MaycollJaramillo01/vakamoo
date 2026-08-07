@@ -11,17 +11,32 @@ import { reviews } from '../../data/site';
   </div>
   <div class="reviews-marquee reveal">
     <div class="reviews-track">
-      {
-        [...reviews.items, ...reviews.items].map((item) => (
-          <blockquote class="review-card">
-            <p>“{item.quote}”</p>
-            <footer>
-              <strong>{item.name}</strong>
-              <span>{item.role}</span>
-            </footer>
-          </blockquote>
-        ))
-      }
+      <div class="reviews-set">
+        {
+          reviews.items.map((item) => (
+            <blockquote class="review-card">
+              <p>“{item.quote}”</p>
+              <footer>
+                <strong>{item.name}</strong>
+                <span>{item.role}</span>
+              </footer>
+            </blockquote>
+          ))
+        }
+      </div>
+      <div class="reviews-set" aria-hidden="true">
+        {
+          reviews.items.map((item) => (
+            <blockquote class="review-card">
+              <p>“{item.quote}”</p>
+              <footer>
+                <strong>{item.name}</strong>
+                <span>{item.role}</span>
+              </footer>
+            </blockquote>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>

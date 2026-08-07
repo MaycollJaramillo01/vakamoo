@@ -67,6 +67,41 @@ select {
   color: #fff;
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn:focus-visible,
+.cookie-btn:focus-visible,
+.cs-popup-close:focus-visible,
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible,
+.nav-toggle:focus-visible,
+.menu-tab:focus-visible,
+.menu-select:focus-visible,
+.gallery-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.cs-popup-form input:focus,
+.menu-select:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+  box-shadow: 0 2px 0 0 var(--accent);
+}
+
+.menu-select:focus {
+  border-color: var(--accent);
+  box-shadow: none;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .container {
   width: min(100% - 2 * var(--space), var(--max));
   margin-inline: auto;
@@ -782,6 +817,13 @@ h3 {
 .field textarea:focus,
 .field select:focus {
   border-bottom-color: var(--accent);
+  box-shadow: 0 2px 0 0 var(--accent);
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible,
+.field select:focus-visible {
+  outline: none;
 }
 
 .field textarea {
@@ -1418,7 +1460,13 @@ h3 {
   animation: reviewsScroll 42s linear infinite;
 }
 
-.reviews-marquee:hover .reviews-track {
+.reviews-set {
+  display: flex;
+  gap: 1rem;
+}
+
+.reviews-marquee:hover .reviews-track,
+.reviews-marquee:focus-within .reviews-track {
   animation-play-state: paused;
 }
 
@@ -1960,11 +2008,43 @@ body.cs-open {
 
 .cs-popup-form input:focus {
   border-bottom-color: var(--accent);
+  box-shadow: 0 2px 0 0 var(--accent);
+  outline: none;
 }
 
 .cs-popup-form .btn {
   width: 100%;
   margin-top: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-media img,
+  .reviews-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cs-popup-dialog {
+    animation: none;
+  }
 }
 
 

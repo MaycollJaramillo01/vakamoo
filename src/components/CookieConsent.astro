@@ -21,7 +21,7 @@
     </div>
 
     <div class="cookie-view" data-cookie-view="settings" hidden>
-      <div class="cookie-header">Cookies</div>
+      <div class="cookie-header" id="cookie-settings-title">Cookies</div>
       <div class="cookie-body">
         <p>
           Choose what kind of cookies to accept. Your choice will be saved for one year.
@@ -86,14 +86,18 @@
 </div>
 
 <script>
+  import { createFocusTrap } from '../scripts/focus-trap.js';
+
   const KEY = 'vakamoo-cookie-consent';
   const YEAR_MS = 365 * 24 * 60 * 60 * 1000;
 
   const root = document.querySelector('[data-cookie-root]');
   if (root) {
+    const panel = root.querySelector('.cookie-panel');
     const infoView = root.querySelector('[data-cookie-view="info"]');
     const settingsView = root.querySelector('[data-cookie-view="settings"]');
     const toggles = Array.from(root.querySelectorAll('[data-cookie-toggle]'));
+    const trap = panel ? createFocusTrap(panel) : null;
 
     function readConsent() {
       try {
@@ -127,9 +131,12 @@
     function show() {
       root.hidden = false;
       document.body.classList.add('cookie-open');
+      const firstBtn = infoView?.querySelector('button');
+      trap?.activate(firstBtn);
     }
 
     function hide() {
+      trap?.deactivate();
       root.hidden = true;
       document.body.classList.remove('cookie-open');
       document.dispatchEvent(new CustomEvent('vakamoo:cookies-ready'));
@@ -138,6 +145,9 @@
     function showSettings() {
       infoView.hidden = true;
       settingsView.hidden = false;
+      panel?.setAttribute('aria-labelledby', 'cookie-settings-title');
+      const firstToggle = settingsView?.querySelector('[data-cookie-toggle]');
+      firstToggle?.focus();
     }
 
     function setToggle(btn, on) {
@@ -148,9 +158,15 @@
 
     function currentPrefs() {
       return {
-        statistics: toggles.find((t) => t.getAttribute('data-cookie-toggle') === 'statistics')?.classList.contains('is-on'),
-        experience: toggles.find((t) => t.getAttribute('data-cookie-toggle') === 'experience')?.classList.contains('is-on'),
-        marketing: toggles.find((t) => t.getAttribute('data-cookie-toggle') === 'marketing')?.classList.contains('is-on'),
+        statistics: toggles
+          .find((t) => t.getAttribute('data-cookie-toggle') === 'statistics')
+          ?.classList.contains('is-on'),
+        experience: toggles
+          .find((t) => t.getAttribute('data-cookie-toggle') === 'experience')
+          ?.classList.contains('is-on'),
+        marketing: toggles
+          .find((t) => t.getAttribute('data-cookie-toggle') === 'marketing')
+          ?.classList.contains('is-on'),
       };
     }
 
@@ -165,6 +181,12 @@
       );
     });
     root.querySelector('[data-cookie-save]')?.addEventListener('click', () => saveConsent(currentPrefs()));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !root.hidden) {
+        saveConsent({ statistics: false, experience: false, marketing: false });
+      }
+    });
 
     if (!readConsent()) {
       show();

@@ -11,16 +11,23 @@ const { current = '/' } = Astro.props;
 <header class="site-header" data-header>
   <div class="container">
     <a class="logo" href="/" aria-label={`${site.name} home`}>
-      <img src={site.logo} alt={site.name} width="150" height="68" />
+      <img src={site.logo} alt="" width="150" height="68" />
     </a>
 
-    <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle
+    >
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <nav class="nav" data-nav aria-label="Primary">
+    <nav class="nav" id="site-nav" data-nav aria-label="Primary">
       {
         nav.map((item) => (
           <a href={item.href} aria-current={current === item.href ? 'page' : undefined}>
@@ -45,7 +52,33 @@ const { current = '/' } = Astro.props;
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  function setNavOpen(open) {
+    nav?.classList.toggle('is-open', open);
+    toggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) {
+      const first = nav?.querySelector('a');
+      first?.focus();
+    }
+  }
+
   toggle?.addEventListener('click', () => {
-    nav?.classList.toggle('is-open');
+    const open = !nav?.classList.contains('is-open');
+    setNavOpen(open);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav?.classList.contains('is-open')) {
+      setNavOpen(false);
+      toggle?.focus();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!nav?.classList.contains('is-open')) return;
+    const target = e.target;
+    if (target instanceof Node && !header?.contains(target)) {
+      setNavOpen(false);
+    }
   });
 </script>

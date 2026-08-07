@@ -31,7 +31,14 @@ import { gallery } from '../../data/site';
   </div>
 </section>
 
-<div class="lightbox" id="gallery-lightbox" hidden>
+<div
+  class="lightbox"
+  id="gallery-lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Gallery image"
+  hidden
+>
   <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close">×</button>
   <button type="button" class="lightbox-nav lightbox-prev" data-lightbox-prev aria-label="Previous">‹</button>
   <img class="lightbox-img" alt="" />
@@ -39,31 +46,44 @@ import { gallery } from '../../data/site';
 </div>
 
 <script>
+  import { createFocusTrap } from '../../scripts/focus-trap.js';
+
   const galleryRoot = document.querySelector('[data-gallery]');
   const lightbox = document.getElementById('gallery-lightbox');
   const lightboxImg = lightbox?.querySelector('.lightbox-img');
   const items = galleryRoot
     ? Array.from(galleryRoot.querySelectorAll('[data-gallery-open]'))
     : [];
+  const trap = lightbox ? createFocusTrap(lightbox) : null;
   let current = 0;
+  let lastTrigger = null;
 
   function openLightbox(index) {
     if (!lightbox || !lightboxImg || !items.length) return;
     current = (index + items.length) % items.length;
     const full = items[current].getAttribute('data-full') || '';
     lightboxImg.setAttribute('src', full);
+    lightboxImg.setAttribute('alt', `Gallery image ${current + 1}`);
+    lightbox.setAttribute('aria-label', `Gallery image ${current + 1}`);
     lightbox.hidden = false;
     document.body.style.overflow = 'hidden';
+    const closeBtn = lightbox.querySelector('[data-lightbox-close]');
+    trap?.activate(closeBtn);
   }
 
   function closeLightbox() {
     if (!lightbox) return;
+    trap?.deactivate();
     lightbox.hidden = true;
     document.body.style.overflow = '';
+    lastTrigger?.focus();
   }
 
   items.forEach((btn, i) => {
-    btn.addEventListener('click', () => openLightbox(i));
+    btn.addEventListener('click', () => {
+      lastTrigger = btn;
+      openLightbox(i);
+    });
   });
 
   lightbox?.querySelector('[data-lightbox-close]')?.addEventListener('click', closeLightbox);
