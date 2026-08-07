@@ -42,13 +42,13 @@ export const menuCategoriesFull: MenuCategory[] = [
         name: "Ninja’s Conconcitos",
         price: '$16',
         description:
-          'A trio of crispy rice baskets with a kiss of sweet chili, filled with fresh guacamole and your choice of Ropa Vieja, Shrimp, or Shredded Chicken Teriyaki.',
+          'A trio of crispy rice baskets with a kiss of sweet chili, filled with fresh guacamole and your choice of Ropa Vieja, Shrimp, or Shredded Chicken Teriyaki — small bites, big flavor.',
       },
       {
         name: "Daddy’s Mofonguitos",
         price: '$16',
         description:
-          'Crispy fried yucca baskets filled with your choice of Ropa Vieja, Shrimp, or Teriyaki Chicken — Caribbean crunch with bold Asian flavor.',
+          'Crispy fried yucca baskets filled with your choice of Ropa Vieja, Shrimp, or Teriyaki Chicken, blending Caribbean crunch with bold Asian flavor.',
       },
       {
         name: 'Asian Chicharron',
@@ -70,26 +70,33 @@ export const menuCategoriesFull: MenuCategory[] = [
         name: 'Pulpo a la Parrilla',
         price: '$24',
         description:
-          'Grilled octopus marinated in garlic teriyaki, served with crispy papas bravas and a drizzle of bold chimichurri.',
+          'Grilled octopus marinated in garlic teriyaki, served with crispy papas bravas and a drizzle of bold chimichurri — smoky, tender, unforgettable.',
       },
       {
         name: "Ninja’s Empanadas",
         price: '$16',
         description:
-          'Two golden turnovers stuffed with savory ropa vieja and melty mozzarella, served with spicy-smooth sriracha mayo aioli.',
+          'Two golden turnovers stuffed with savory ropa vieja and melty mozzarella, served with a spicy-smooth sriracha mayo aioli.',
       },
       {
-        name: 'Ceviche de Pulpo',
+        name: 'Ceviche Mixto',
         price: '$18',
         description:
-          'Ceviche of octopus, lime juice, peppers and onions, cilantro, served with plantain chips.',
+          'Shrimp and white fish with onions, cilantro, lime, salt, and pepper.',
+        raw: true,
+      },
+      {
+        name: "Ninja’s Ceviche",
+        price: '$18',
+        description:
+          'Fresh caught white fish, calamari and shrimp cured in lime juice and peppers and thin sliced onions.',
         raw: true,
       },
       {
         name: 'Mofonguitos de Churrasco',
         price: '$16',
         description:
-          'Crispy fried plantain baskets topped with creamy guacamole, tender skirt steak, and chimichurri.',
+          'Crispy fried plantain baskets topped with creamy guacamole, tender skirt steak, and chimichurri — a Latin steakhouse bite, Ninja style.',
       },
       {
         name: 'Hamachi Jalapeño',
@@ -100,13 +107,14 @@ export const menuCategoriesFull: MenuCategory[] = [
         name: 'Tropical Tuna Tartar',
         price: '$18',
         description:
-          'Fresh wild-caught tuna mixed with creamy avocado and sweet mango, finished with spicy mayo.',
+          'Fresh wild-caught tuna mixed with creamy avocado and sweet mango, finished with spicy mayo — a vibrant Latin-Asian fusion in every spoonful.',
         raw: true,
       },
       {
         name: 'Shrimp Tempura',
         price: '$13',
-        description: 'Light and crispy shrimp tempura, served with our signature sweet chili dipping sauce.',
+        description:
+          'Light and crispy shrimp tempura, served with our signature sweet chili dipping sauce — a craveable crunchy starter.',
       },
       {
         name: 'Crispy Calamari',
@@ -224,6 +232,23 @@ export const menuCategoriesFull: MenuCategory[] = [
     ],
   },
   {
+    id: 'ninja-platters',
+    label: 'Ninja Platters',
+    note: 'Chef selection — perfect for sharing.',
+    items: [
+      {
+        name: 'Ninja Platter',
+        price: '$100',
+        description: '3 sushi + 5 appetizers (chef selection). Serves 3–5 people.',
+      },
+      {
+        name: 'Ninja Platter Grande',
+        price: '$140',
+        description: '5 sushi + 6 appetizers (chef selection). Serves 5–7 people.',
+      },
+    ],
+  },
+  {
     id: 'traditional-rolls',
     label: 'Traditional Rolls',
     items: [
@@ -247,7 +272,7 @@ export const menuCategoriesFull: MenuCategory[] = [
       },
       {
         name: 'Baltimore Roll',
-        price: '$14',
+        price: '$16',
         description: 'Kani, Cucumber, Cream Cheese, Sweet Plantains, Guacamole, Crab Meat',
         raw: true,
       },
@@ -299,23 +324,6 @@ export const menuCategoriesFull: MenuCategory[] = [
     ],
   },
   {
-    id: 'ninja-platters',
-    label: 'Ninja Platters',
-    note: 'Chef selection — perfect for sharing.',
-    items: [
-      {
-        name: 'Ninja Platter',
-        price: '$100',
-        description: '3 sushi + 5 appetizers (chef selection). Serves 3–5 people.',
-      },
-      {
-        name: 'Ninja Platter Grande',
-        price: '$140',
-        description: '5 sushi + 6 appetizers (chef selection). Serves 5–7 people.',
-      },
-    ],
-  },
-  {
     id: 'main-courses',
     label: 'Main Courses',
     items: [
@@ -323,95 +331,105 @@ export const menuCategoriesFull: MenuCategory[] = [
         name: 'Ninja Mar y Tierra',
         price: '$60',
         description:
-          'A juicy 10 oz grilled Churrasco steak, paired with tender sautéed shrimp and a lobster tail, served over creamy yucca mash and seasonal vegetables. Finished with Ninja Sauce.',
+          'The ultimate surf and turf experience. A juicy 10 oz grilled Churrasco steak, paired with tender sautéed shrimp and a succulent lobster tail, served over creamy yucca mash and seasonal vegetables. Finished with a generous drizzle of our signature Ninja Sauce.',
       },
       {
         name: "Ninja’s Churrasco",
         price: '$36',
         description:
-          '10 oz grilled skirt steak, marinated and seared to perfection. Served with creamy yucca mash and seasonal vegetables.',
+          '10 oz of grilled skirt steak, marinated and seared to perfection. Served with creamy yucca mash and seasonal vegetables — a hearty, flavorful favorite.',
       },
       {
         name: 'Salmon in Paradise',
-        price: '$38',
+        price: '$36',
         description:
-          'Grilled salmon paired with sautéed shrimp, served over mashed potatoes and vegetables with passion fruit sauce.',
+          'Succulent grilled salmon paired with sautéed shrimp, served over mashed potatoes and vegetables, all brought together by a vibrant passion fruit sauce.',
       },
       {
         name: 'Pollo Ninja',
         price: '$26',
         description:
-          'Grilled chicken breast topped with smoky creamy bacon sauce, served with a tower of crispy sweet maduros.',
+          'Grilled chicken breast topped with a rich and smoky creamy bacon sauce, served with a tower of crispy sweet maduros — comfort food with a tropical twist.',
       },
       {
         name: 'Pescado Samana',
-        price: 'Market',
+        price: 'Market Price',
         description:
-          'Whole crispy fried red snapper with golden tostones and a fresh house salad — inspired by Samaná.',
+          'A whole crispy fried red snapper, served traditional-style with golden tostones and a fresh house salad — inspired by the coastal kitchens of Samaná.',
       },
       {
         name: 'Langosta Rellena',
-        price: 'Market',
+        price: 'Market Price',
         description:
-          'Whole lobster stuffed with mixed seafood, finished in coconut cream sauce. Served with yucca mash.',
+          'Whole lobster, stuffed with mixed seafood and finished in a luscious coconut cream sauce. Served with yucca mash for a rich island indulgence.',
       },
       {
         name: "Ninja’s Ribeye",
         price: '$55',
         description:
-          '12 oz ribeye, seared and served with yucca mash, vegetables, and a bold Brugal rum demi-glace.',
+          'A 12 oz Ribeye Steak, expertly seared and served with yucca mash, vegetables, and a bold Brugal rum demi-glace — Dominican spirit meets steakhouse classic.',
       },
       {
-        name: 'Ninja Fongo — Camarones / Churrasco',
+        name: 'Grilled Salmon',
+        price: '$30',
+        description:
+          'Fresh grilled salmon, served with mashed potatoes, sautéed vegetables, and drizzled with our signature passionfruit glaze.',
+      },
+      {
+        name: 'Ninja Fongo — Camarones',
+        price: '$30',
+        description: 'Our signature mofongo made your way — with shrimp.',
+      },
+      {
+        name: 'Ninja Fongo — Churrasco',
         price: '$36',
-        description: 'Signature mofongo with shrimp or skirt steak.',
+        description: 'Our signature mofongo made your way — with skirt steak.',
       },
       {
         name: 'Ninja Fongo — Pollo',
         price: '$26',
-        description: 'Signature mofongo with chicken.',
+        description: 'Our signature mofongo made your way — with chicken.',
       },
       {
         name: 'Ninja Fongo — Marisco',
         price: '$38',
-        description: 'Signature mofongo with seafood mix.',
+        description: 'Our signature mofongo made your way — with seafood mix.',
       },
       {
         name: 'Chicken Teriyaki',
         price: '$26',
         description:
-          'Tender grilled chicken glazed in house-made teriyaki, served with asparagus and sweet fried plantains.',
+          'Tender grilled chicken glazed in a rich, house-made teriyaki sauce, served alongside asparagus and sweet fried plantains for a perfect balance of sweet and umami-packed flavor.',
       },
       {
         name: 'Ninja Bento — Chicken Teriyaki',
         price: '$22',
-        description: 'Latin-style fried rice with Chinese vegetables, sweet plantains, and eggs.',
       },
       {
         name: 'Ninja Bento — Beef Teriyaki',
         price: '$24',
-        description: 'Latin-style fried rice with Chinese vegetables, sweet plantains, and eggs.',
       },
       {
         name: 'Ninja Bento — Shrimp Teriyaki',
         price: '$26',
-        description: 'Latin-style fried rice with Chinese vegetables, sweet plantains, and eggs.',
       },
       {
-        name: 'Fried Rice',
+        name: 'Ninja Chofan',
         price: '$15+',
-        description: 'Plain $15 · Chicken +$6 · Shrimp +$8 · Churrasco +$8',
+        description:
+          'Latin-style fried rice with Chinese vegetables, sweet plantains, and eggs. Plain $15 · Chicken +$6 · Shrimp +$8 · Churrasco +$8',
       },
       {
         name: 'Yakisoba',
         price: '$16+',
-        description: 'Japanese stir-fried noodles. Add Chicken $6 · Shrimp $8 · Churrasco $8',
+        description:
+          'Japanese stir-fried noodles with choice of Chicken +$6 · Shrimp +$8 · Churrasco +$8',
       },
       {
         name: 'Arroz con Marisco',
         price: '$35',
         description:
-          'Spanish-style saffron rice loaded with calamari, shrimp, octopus, and mussels.',
+          'A rich and fragrant Spanish-style saffron rice dish loaded with calamari, shrimp, octopus, and mussels.',
       },
       {
         name: 'Bandeja La Parcerita',
@@ -446,7 +464,7 @@ export const menuCategoriesFull: MenuCategory[] = [
   {
     id: 'salads-soups',
     label: 'Salads & Soups',
-    note: 'Salads served with Ninja Ginger Dressing or Balsamic Dressing.',
+    note: 'Salads served with our Ninja Ginger Dressing or Balsamic Dressing.',
     items: [
       { name: 'Miso Soup', price: '$8' },
       { name: 'Dumpling Soup', price: '$12' },
@@ -455,7 +473,8 @@ export const menuCategoriesFull: MenuCategory[] = [
       {
         name: 'House Salad',
         price: '$12',
-        description: 'Mixed greens, onions, peppers, carrots, dressed in Asian raspberry vinaigrette.',
+        description:
+          'Plain house salad. Add-ons: Chicken +$8 · Skirt Steak +$15 · Shrimp +$15.',
       },
     ],
   },
@@ -469,7 +488,40 @@ export const menuCategoriesFull: MenuCategory[] = [
         description: 'Chicken Tempura, Bacon & Sweet Plantains',
       },
       { name: 'Chicken Fingers & French Fries', price: '$10' },
-      { name: 'Hamburger & French Fries', price: '$10' },
+      { name: 'Cheese Burger & French Fries', price: '$10' },
+    ],
+  },
+  {
+    id: 'desserts',
+    label: 'Desserts',
+    items: [
+      {
+        name: 'Passion Fruit Tres Leches',
+        price: '$12',
+      },
+      {
+        name: 'Flan',
+        price: '$10',
+      },
+      {
+        name: 'Tempura Cheesecake with Matcha Cream',
+        price: '$13',
+        description: 'Deep fried, creamy cheesecake.',
+      },
+      {
+        name: 'Taro Cake',
+        price: '$12',
+        description: 'Lava cake with vanilla ice cream.',
+      },
+      {
+        name: 'Banana Tempura with Vanilla Ice Cream',
+        price: '$12',
+        description: 'Deep fried bananas covered with corn flakes, served with ice cream.',
+      },
+      {
+        name: 'Ice Cream',
+        price: '$4',
+      },
     ],
   },
 ];

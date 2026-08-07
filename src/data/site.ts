@@ -91,6 +91,9 @@ export const menuCategories = [
   { label: 'Ninja Platters', href: '/menu/?cat=ninja-platters' },
   { label: 'Traditional Rolls', href: '/menu/?cat=traditional-rolls' },
   { label: 'Main Courses', href: '/menu/?cat=main-courses' },
+  { label: 'Salads & Soups', href: '/menu/?cat=salads-soups' },
+  { label: 'Kids', href: '/menu/?cat=kids' },
+  { label: 'Desserts', href: '/menu/?cat=desserts' },
 ];
 
 export const chefBio = {
