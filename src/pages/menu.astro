@@ -21,6 +21,17 @@ import { menuCategoriesFull, menuDisclaimer } from '../data/menu';
       <p class="menu-disclaimer reveal">{menuDisclaimer}</p>
 
       <div class="menu-tabs reveal" data-menu-tabs>
+        <label class="menu-select-label" for="menu-category">Category</label>
+        <select class="menu-select" id="menu-category" data-menu-select aria-label="Menu categories">
+          {
+            menuCategoriesFull.map((cat, i) => (
+              <option value={cat.id} selected={i === 0}>
+                {cat.label}
+              </option>
+            ))
+          }
+        </select>
+
         <div class="menu-tablist" role="tablist" aria-label="Menu categories">
           {
             menuCategoriesFull.map((cat, i) => (
@@ -86,6 +97,7 @@ import { menuCategoriesFull, menuDisclaimer } from '../data/menu';
   if (root) {
     const tabs = Array.from(root.querySelectorAll('[data-tab]'));
     const panels = Array.from(root.querySelectorAll('[data-panel]'));
+    const select = root.querySelector('[data-menu-select]');
 
     const activate = (id) => {
       tabs.forEach((tab) => {
@@ -98,6 +110,9 @@ import { menuCategoriesFull, menuDisclaimer } from '../data/menu';
         panel.classList.toggle('is-active', on);
         panel.hidden = !on;
       });
+      if (select && select.value !== id) {
+        select.value = id;
+      }
     };
 
     tabs.forEach((tab) => {
@@ -105,6 +120,10 @@ import { menuCategoriesFull, menuDisclaimer } from '../data/menu';
         const id = tab.getAttribute('data-tab');
         if (id) activate(id);
       });
+    });
+
+    select?.addEventListener('change', () => {
+      if (select.value) activate(select.value);
     });
 
     const params = new URLSearchParams(window.location.search);

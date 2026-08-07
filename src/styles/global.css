@@ -26,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -39,6 +40,7 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 img {
@@ -68,6 +70,7 @@ select {
 .container {
   width: min(100% - 2 * var(--space), var(--max));
   margin-inline: auto;
+  max-width: 100%;
 }
 
 .section {
@@ -1156,6 +1159,35 @@ h3 {
 .menu-tabs {
   display: grid;
   gap: 2rem;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.menu-select-label {
+  display: none;
+}
+
+.menu-select {
+  display: none;
+  width: 100%;
+  appearance: none;
+  background: var(--bg-elevated)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239a948a' d='M1 1l5 5 5-5'/%3E%3C/svg%3E")
+    no-repeat right 1rem center;
+  background-size: 12px;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.95rem 2.5rem 0.95rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  outline: none;
+  cursor: pointer;
+}
+
+.menu-select:focus {
+  border-color: var(--accent);
 }
 
 .menu-tablist {
@@ -1164,6 +1196,8 @@ h3 {
   gap: 0.35rem;
   padding-bottom: 0.25rem;
   border-bottom: 1px solid var(--line);
+  max-width: 100%;
+  min-width: 0;
 }
 
 .menu-tab {
@@ -1218,18 +1252,22 @@ h3 {
   justify-content: space-between;
   gap: 1.25rem;
   margin-bottom: 0.35rem;
+  min-width: 0;
 }
 
 .menu-item h3 {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2vw, 1.45rem);
   margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .menu-item-price {
   flex-shrink: 0;
   font-weight: 600;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .menu-item p {
@@ -1237,6 +1275,7 @@ h3 {
   color: var(--muted);
   max-width: 48rem;
   font-size: 0.95rem;
+  overflow-wrap: anywhere;
 }
 
 .raw-mark {
@@ -1261,16 +1300,34 @@ h3 {
 }
 
 @media (max-width: 700px) {
-  .menu-tablist {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+  .menu-select-label {
+    display: block;
+    margin: 0 0 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
 
-  .menu-tab {
-    flex: 0 0 auto;
-    padding-inline: 0.85rem;
+  .menu-select {
+    display: block;
+  }
+
+  .menu-tablist {
+    display: none;
+  }
+
+  .menu-tabs {
+    gap: 1.5rem;
+  }
+
+  .menu-item-top {
+    gap: 0.75rem;
+  }
+
+  .menu-item-price {
+    font-size: 0.95rem;
   }
 }
 
@@ -1341,6 +1398,7 @@ h3 {
 .reviews-section {
   overflow: hidden;
   padding-top: clamp(2.25rem, 4vw, 3.25rem);
+  max-width: 100%;
 }
 
 .reviews-section .section-head {
@@ -1803,6 +1861,7 @@ body.cs-open {
   display: grid;
   place-items: center;
   padding: 1.25rem;
+  overflow-x: hidden;
 }
 
 .cs-popup[hidden] {
@@ -1819,6 +1878,7 @@ body.cs-open {
   position: relative;
   z-index: 1;
   width: min(100%, 520px);
+  max-width: 100%;
   max-height: min(92vh, 900px);
   overflow: auto;
   background: var(--bg-elevated);
@@ -1839,18 +1899,26 @@ body.cs-open {
 
 .cs-popup-close {
   position: absolute;
-  top: 0.55rem;
-  right: 0.65rem;
-  z-index: 2;
-  width: 2.25rem;
-  height: 2.25rem;
-  border: 0;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 2.85rem;
+  height: 2.85rem;
+  border: 2px solid #fff;
   border-radius: 999px;
-  background: rgba(10, 9, 8, 0.7);
+  background: var(--accent);
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.85rem;
+  font-weight: 700;
   line-height: 1;
   cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
+}
+
+.cs-popup-close:hover {
+  background: var(--accent-hot);
 }
 
 .cs-popup-media {
