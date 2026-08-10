@@ -1193,9 +1193,16 @@ h3 {
 .menu-disclaimer {
   margin: 0 0 2rem;
   max-width: 52rem;
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.55;
+  color: var(--ink);
+  font-size: clamp(0.98rem, 2.2vw, 1.08rem);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.menu-disclaimer-raw {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .menu-tabs {

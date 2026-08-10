@@ -2,7 +2,7 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import { site } from '../data/site';
-import { menuCategoriesFull, menuDisclaimer } from '../data/menu';
+import { menuCategoriesFull } from '../data/menu';
 ---
 
 <SiteLayout
@@ -18,7 +18,11 @@ import { menuCategoriesFull, menuDisclaimer } from '../data/menu';
 
   <section class="section menu-page">
     <div class="container">
-      <p class="menu-disclaimer reveal">{menuDisclaimer}</p>
+      <p class="menu-disclaimer reveal">
+        Before placing your order please inform your server if anyone in your party has a food
+        allergy. Items marked <span class="menu-disclaimer-raw">***</span> are served raw,
+        undercooked, or may contain raw or undercooked ingredients.
+      </p>
 
       <div class="menu-tabs reveal" data-menu-tabs>
         <label class="menu-select-label" for="menu-category">Category</label>

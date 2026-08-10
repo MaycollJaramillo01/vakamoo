@@ -12,9 +12,6 @@ export type MenuCategory = {
   items: MenuItem[];
 };
 
-export const menuDisclaimer =
-  'Before placing your order please inform your server if anyone in your party has a food allergy. Items marked *** are served raw, undercooked, or may contain raw or undercooked ingredients.';
-
 export const menuCategoriesFull: MenuCategory[] = [
   {
     id: 'appetizers',
@@ -82,7 +79,7 @@ export const menuCategoriesFull: MenuCategory[] = [
         name: 'Ceviche Mixto',
         price: '$18',
         description:
-          'Shrimp and white fish with onions, cilantro, lime, salt, and pepper.',
+          'Shrimp and white fish with onions, cilantro, lime juice, salt, and pepper.',
         raw: true,
       },
       {
@@ -149,7 +146,7 @@ export const menuCategoriesFull: MenuCategory[] = [
           'Lobster Meat, Shrimp Tempura, Sweet Plantains, Avocado, Kani, Ninja Sauce with Guacamole & Chips',
       },
       {
-        name: 'Vaca Moo',
+        name: 'Vakamoo',
         price: '$20',
         description:
           'Chicken Tempura, Mozzarella, Bacon, Sweet Plantains, Deep Fried in Doritos, Guacamole & Ropa Vieja',
@@ -259,7 +256,7 @@ export const menuCategoriesFull: MenuCategory[] = [
         raw: true,
       },
       {
-        name: 'Buddha Roll',
+        name: 'Eldersburg Roll',
         price: '$16',
         description: 'Shrimp Tempura, Avocado, Mango, Eel Sauce',
         raw: true,
@@ -483,12 +480,16 @@ export const menuCategoriesFull: MenuCategory[] = [
     label: 'Kids',
     items: [
       {
-        name: 'Pikachu Roll',
+        name: 'Chiqui Roll',
         price: '$10',
         description: 'Chicken Tempura, Bacon & Sweet Plantains',
       },
       { name: 'Chicken Fingers & French Fries', price: '$10' },
-      { name: 'Cheese Burger & French Fries', price: '$10' },
+      {
+        name: 'Cheese Burger & French Fries',
+        price: '$10',
+        description: 'Add bacon +$3.',
+      },
     ],
   },
   {
@@ -509,9 +510,13 @@ export const menuCategoriesFull: MenuCategory[] = [
         description: 'Deep fried, creamy cheesecake.',
       },
       {
-        name: 'Taro Cake',
+        name: 'Taro Cheesecake',
         price: '$12',
-        description: 'Lava cake with vanilla ice cream.',
+      },
+      {
+        name: 'Lava Cake',
+        price: '$12',
+        description: 'With vanilla ice cream.',
       },
       {
         name: 'Banana Tempura with Vanilla Ice Cream',
