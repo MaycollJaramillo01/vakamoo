@@ -154,7 +154,7 @@ export const socialProof = {
 
 export const orderCta = {
   title: 'Experience premium flavors when you order right now.',
-  body: 'Reservations are by phone only, from 10 AM to 5 PM.',
+  body: 'Reservations by phone only, 10 AM – 5 PM. Opening weekend: limited to 2 hours per party.',
   cta: 'Call to Reserve',
   get href() {
     return `tel:${site.phone.replace(/\s/g, '')}`;
