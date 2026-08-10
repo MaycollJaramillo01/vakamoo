@@ -34,6 +34,8 @@ const nextUrl = `${site.url}/join-us/?sent=1`;
           method="POST"
           action={`https://formsubmit.co/${site.email}`}
           enctype="multipart/form-data"
+          data-recaptcha-form
+          data-recaptcha-action="join"
         >
           <input type="hidden" name="_subject" value="VAKAMOO — Job Application" />
           <input type="hidden" name="_next" value={nextUrl} />

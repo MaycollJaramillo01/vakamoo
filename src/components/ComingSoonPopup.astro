@@ -32,7 +32,9 @@ const nextUrl = `${site.url}/?notify=1`;
         class="cs-popup-form"
         method="POST"
         action={`https://formsubmit.co/${site.email}`}
-        data-cs-form
+        data-recaptcha-form
+        data-recaptcha-action="notify"
+        data-success-storage="vakamoo-coming-soon-dismissed"
       >
         <input type="hidden" name="_subject" value="VAKAMOO — Coming Soon Notify Me" />
         <input type="hidden" name="_next" value={nextUrl} />
@@ -93,12 +95,6 @@ const nextUrl = `${site.url}/?notify=1`;
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !root.hidden) closePopup();
-    });
-
-    root.querySelector('[data-cs-form]')?.addEventListener('submit', () => {
-      try {
-        localStorage.setItem(KEY, '1');
-      } catch {}
     });
 
     document.addEventListener('vakamoo:cookies-ready', () => {

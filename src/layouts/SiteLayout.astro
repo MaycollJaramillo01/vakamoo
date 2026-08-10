@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Seo from '../components/Seo.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import ComingSoonPopup from '../components/ComingSoonPopup.astro';
+import Recaptcha from '../components/Recaptcha.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -37,6 +38,7 @@ const {
     <Footer />
     <ComingSoonPopup />
     <CookieConsent />
+    <Recaptcha />
     <script>
       const io = new IntersectionObserver(
         (entries) => {

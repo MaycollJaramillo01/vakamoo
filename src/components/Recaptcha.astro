@@ -1,0 +1,16 @@
+---
+import { site } from '../data/site';
+---
+
+<script
+  src={`https://www.google.com/recaptcha/api.js?render=${site.recaptchaSiteKey}`}
+  async
+  defer
+></script>
+<script is:inline define:vars={{ siteKey: site.recaptchaSiteKey }}>
+  window.__RECAPTCHA_SITE_KEY__ = siteKey;
+</script>
+<script>
+  import { bindRecaptchaForms } from '../scripts/recaptcha-forms.js';
+  bindRecaptchaForms();
+</script>

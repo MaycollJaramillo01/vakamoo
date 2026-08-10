@@ -60,7 +60,13 @@ const nextUrl = `${site.url}/contact-us/?sent=1`;
           )
         }
         <ArchFrame class="form-frame">
-          <form class="form form-in-arch" method="POST" action={`https://formsubmit.co/${site.email}`}>
+          <form
+            class="form form-in-arch"
+            method="POST"
+            action={`https://formsubmit.co/${site.email}`}
+            data-recaptcha-form
+            data-recaptcha-action="contact"
+          >
             <input type="hidden" name="_subject" value="VAKAMOO — Contact Form" />
             <input type="hidden" name="_next" value={nextUrl} />
             <input type="hidden" name="_captcha" value="false" />

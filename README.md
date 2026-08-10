@@ -34,3 +34,12 @@ public/media/     Brand images
 | Legal | Privacy, terms, cookies |
 
 Forms submit via FormSubmit to `info@vakamoo.com` (confirm email on first use).
+
+## reCAPTCHA v3
+
+Copy `.env.example` to `.env` and set:
+
+- `PUBLIC_RECAPTCHA_SITE_KEY` (public site key)
+- `RECAPTCHA_SECRET_KEY` (server-only; never commit)
+
+All forms run reCAPTCHA v3 before submit. On Netlify, `netlify/functions/verify-recaptcha` verifies the token with Google using the secret key.
