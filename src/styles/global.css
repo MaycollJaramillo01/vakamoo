@@ -74,7 +74,6 @@ select {
 
 .btn:focus-visible,
 .cookie-btn:focus-visible,
-.cs-popup-close:focus-visible,
 .lightbox-close:focus-visible,
 .lightbox-nav:focus-visible,
 .nav-toggle:focus-visible,
@@ -88,7 +87,6 @@ select {
 .field input:focus,
 .field textarea:focus,
 .field select:focus,
-.cs-popup-form input:focus,
 .menu-select:focus {
   outline: none;
   border-bottom-color: var(--accent);
@@ -1760,8 +1758,7 @@ h3 {
   border: 0;
 }
 
-body.cookie-open,
-body.cs-open {
+body.cookie-open {
   overflow: hidden;
 }
 
@@ -1953,121 +1950,6 @@ body.cs-open {
   background: #fff;
 }
 
-.cs-popup {
-  position: fixed;
-  inset: 0;
-  z-index: 100005;
-  display: grid;
-  place-items: center;
-  padding: 1.25rem;
-  overflow-x: hidden;
-}
-
-.cs-popup[hidden] {
-  display: none !important;
-}
-
-.cs-popup-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.72);
-}
-
-.cs-popup-dialog {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 520px);
-  max-width: 100%;
-  max-height: min(92vh, 900px);
-  overflow: auto;
-  background: var(--bg-elevated);
-  border: 1.5px solid var(--accent);
-  animation: csIn 0.45s ease both;
-}
-
-@keyframes csIn {
-  from {
-    opacity: 0;
-    transform: translateY(-18px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.cs-popup-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  z-index: 3;
-  display: grid;
-  place-items: center;
-  width: 2.85rem;
-  height: 2.85rem;
-  border: 2px solid #fff;
-  border-radius: 999px;
-  background: var(--accent);
-  color: #fff;
-  font-size: 1.85rem;
-  font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
-}
-
-.cs-popup-close:hover {
-  background: var(--accent-hot);
-}
-
-.cs-popup-media {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-}
-
-.cs-popup-body {
-  padding: 1.35rem 1.35rem 1.5rem;
-}
-
-.cs-popup-body h2 {
-  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
-  margin-bottom: 0.85rem;
-}
-
-.cs-popup-body p {
-  margin: 0 0 0.75rem;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.cs-popup-form {
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 1.15rem;
-}
-
-.cs-popup-form input {
-  width: 100%;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  padding: 0.85rem 0;
-  outline: none;
-}
-
-.cs-popup-form input:focus {
-  border-bottom-color: var(--accent);
-  box-shadow: 0 2px 0 0 var(--accent);
-  outline: none;
-}
-
-.cs-popup-form .btn {
-  width: 100%;
-  margin-top: 0.35rem;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -2091,10 +1973,6 @@ body.cs-open {
   .reveal {
     opacity: 1;
     transform: none;
-  }
-
-  .cs-popup-dialog {
-    animation: none;
   }
 }
 

@@ -18,7 +18,6 @@ export const site = {
   heroImage: '/media/hero.jpg',
   ctaBg: '/media/cta-bg.jpg',
   hiringBg: '/media/hiring-bg.png',
-  comingSoonPopup: '/media/coming-soon-popup.jpg',
   recaptchaSiteKey:
     import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY || '6Lf2jH8tAAAAANXzshkbk5WxBTR7W1UCwJXJsJiJ',
 };
