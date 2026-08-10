@@ -20,6 +20,17 @@ const nextUrl = `${site.url}/contact-us/?sent=1`;
     lead="If you have any questions or concerns about our restaurant, please contact us and we will respond promptly."
   />
 
+  <section class="section section-tight">
+    <div class="container">
+      <p class="reservation-note reveal" role="note">
+        <strong>Reservations:</strong> By phone only,
+        <span class="accent">10 AM – 5 PM</span>.
+        Opening weekend: limited to <span class="accent">2 hours per party</span>.
+        Call <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>.
+      </p>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container contact-grid">
       <div class="meta-list reveal">

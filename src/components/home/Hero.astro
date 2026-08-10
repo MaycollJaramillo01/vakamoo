@@ -29,8 +29,11 @@ import { site, socialProof } from '../../data/site';
       </p>
       <div class="hero-actions">
         <a class="btn" href="/menu/">View Menu</a>
-        <a class="btn btn-ghost" href="/contact-us/">Reserve</a>
+        <a class="btn btn-ghost" href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
       </div>
+      <p class="hero-reserve-note">
+        Reservations by phone only · 10 AM – 5 PM
+      </p>
       <p class="hero-proof">{socialProof.label}</p>
       <p class="hero-years">
         <strong>{socialProof.years.value}</strong>

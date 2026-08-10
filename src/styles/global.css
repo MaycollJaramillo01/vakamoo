@@ -412,6 +412,13 @@ h3 {
   gap: 0.75rem;
 }
 
+.hero-reserve-note {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+}
+
 .split {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -858,6 +865,26 @@ h3 {
 
 .form-error:empty {
   display: none;
+}
+
+.reservation-note {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  border: 1.5px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.reservation-note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.reservation-note a:hover {
+  color: var(--accent);
 }
 
 .contact-grid {
@@ -1433,6 +1460,10 @@ h3 {
 
 .section-tight-top {
   padding-top: 0;
+}
+
+.section-tight {
+  padding-block: 1.5rem;
 }
 
 .stack-sm {

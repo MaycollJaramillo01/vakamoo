@@ -75,7 +75,7 @@ export const faqs = [
   },
   {
     q: 'Can I make a reservation?',
-    a: 'Yes, reservations are welcome. Contact us to secure your table and enjoy a hassle-free dining experience.',
+    a: 'Yes. Reservations are by phone only, from 10 AM to 5 PM. On opening weekend, reservations are limited to 2 hours per party.',
   },
   {
     q: 'Do you host private events or large groups?',
@@ -154,9 +154,11 @@ export const socialProof = {
 
 export const orderCta = {
   title: 'Experience premium flavors when you order right now.',
-  body: 'Searching for a restaurant that values both taste and sustainability? Explore our eco-friendly dining options.',
-  cta: 'Book a Table',
-  href: '/contact-us/',
+  body: 'Reservations are by phone only, from 10 AM to 5 PM.',
+  cta: 'Call to Reserve',
+  get href() {
+    return `tel:${site.phone.replace(/\s/g, '')}`;
+  },
 };
 
 export const reviews = {
