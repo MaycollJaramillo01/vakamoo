@@ -3,9 +3,6 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ArchFrame from '../components/ArchFrame.astro';
 import { site, positions } from '../data/site';
-
-const sent = Astro.url.searchParams.get('sent') === '1';
-const nextUrl = `${site.url}/join-us/?sent=1`;
 ---
 
 <SiteLayout
@@ -21,66 +18,49 @@ const nextUrl = `${site.url}/join-us/?sent=1`;
 
   <section class="section">
     <div class="container form-narrow">
-      {
-        sent && (
-          <div class="form-success reveal" role="status">
-            Thanks — your application was sent. We’ll be in touch.
-          </div>
-        )
-      }
       <ArchFrame class="form-frame reveal">
-        <form
-          class="form form-in-arch"
-          method="POST"
-          action={`https://formsubmit.co/${site.email}`}
-          enctype="multipart/form-data"
-          data-recaptcha-form
-          data-recaptcha-action="join"
-        >
-          <input type="hidden" name="_subject" value="VAKAMOO — Job Application" />
-          <input type="hidden" name="_next" value={nextUrl} />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-
-          <div class="form-row">
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" required />
+        <form class="form form-in-arch form-disabled" aria-disabled="true">
+          <fieldset disabled>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" />
+              </div>
+              <div class="field">
+                <label for="position">Position</label>
+                <select id="position" name="position">
+                  <option value="">Select a role</option>
+                  {positions.map((p) => <option value={p}>{p}</option>)}
+                </select>
+              </div>
             </div>
             <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" required />
+              <label for="cv">CV / Resume</label>
+              <input id="cv" name="cv" type="file" accept=".pdf,.doc,.docx,.png,.jpg" />
             </div>
             <div class="field">
-              <label for="position">Position</label>
-              <select id="position" name="position" required>
-                <option value="">Select a role</option>
-                {positions.map((p) => <option value={p}>{p}</option>)}
-              </select>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us a little about yourself"></textarea>
             </div>
-          </div>
-          <div class="field">
-            <label for="cv">CV / Resume</label>
-            <input id="cv" name="cv" type="file" accept=".pdf,.doc,.docx,.png,.jpg" required />
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us a little about yourself"></textarea>
-          </div>
-          <label class="check">
-            <input type="checkbox" name="privacy_accepted" value="yes" required />
-            <span>
-              I have read and agree to the{' '}
-              <a href="/privacy-policy/" class="link-underline">Privacy Policy</a>.
-            </span>
-          </label>
-          <button class="btn" type="submit">Submit Application</button>
+            <label class="check">
+              <input type="checkbox" name="privacy_accepted" value="yes" />
+              <span>
+                I have read and agree to the{' '}
+                <a href="/privacy-policy/" class="link-underline">Privacy Policy</a>.
+              </span>
+            </label>
+            <button class="btn" type="button" disabled>Submit Application</button>
+          </fieldset>
         </form>
       </ArchFrame>
     </div>

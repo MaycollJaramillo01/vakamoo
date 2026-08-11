@@ -4,9 +4,7 @@ import PageHero from '../components/PageHero.astro';
 import ArchFrame from '../components/ArchFrame.astro';
 import { site } from '../data/site';
 
-const sent = Astro.url.searchParams.get('sent') === '1';
 const mapQuery = encodeURIComponent(`${site.address} ${site.addressLine2}`);
-const nextUrl = `${site.url}/contact-us/?sent=1`;
 ---
 
 <SiteLayout
@@ -63,58 +61,42 @@ const nextUrl = `${site.url}/contact-us/?sent=1`;
       </div>
 
       <div class="reveal">
-        {
-          sent && (
-            <div class="form-success" role="status">
-              Thanks — your message was sent. We’ll get back to you soon.
-            </div>
-          )
-        }
         <ArchFrame class="form-frame">
-          <form
-            class="form form-in-arch"
-            method="POST"
-            action={`https://formsubmit.co/${site.email}`}
-            data-recaptcha-form
-            data-recaptcha-action="contact"
-          >
-            <input type="hidden" name="_subject" value="VAKAMOO — Contact Form" />
-            <input type="hidden" name="_next" value={nextUrl} />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-
-            <div class="form-row">
-              <div class="field">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your full name" required />
+          <form class="form form-in-arch form-disabled" aria-disabled="true">
+            <fieldset disabled>
+              <div class="form-row">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your full name" />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="Email" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="Phone number" />
+                </div>
+                <div class="field">
+                  <label for="subject">Subject</label>
+                  <input id="subject" name="subject" type="text" placeholder="Subject" />
+                </div>
               </div>
               <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="Email" required />
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Message"></textarea>
               </div>
-            </div>
-            <div class="form-row">
-              <div class="field">
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" placeholder="Phone number" required />
-              </div>
-              <div class="field">
-                <label for="subject">Subject</label>
-                <input id="subject" name="subject" type="text" placeholder="Subject" required />
-              </div>
-            </div>
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Message" required></textarea>
-            </div>
-            <label class="check">
-              <input type="checkbox" name="privacy_accepted" value="yes" required />
-              <span>
-                I have read and agree to the{' '}
-                <a href="/privacy-policy/" class="link-underline">Privacy Policy</a>.
-              </span>
-            </label>
-            <button class="btn" type="submit">Send Message</button>
+              <label class="check">
+                <input type="checkbox" name="privacy_accepted" value="yes" />
+                <span>
+                  I have read and agree to the{' '}
+                  <a href="/privacy-policy/" class="link-underline">Privacy Policy</a>.
+                </span>
+              </label>
+              <button class="btn" type="button" disabled>Send Message</button>
+            </fieldset>
           </form>
         </ArchFrame>
       </div>

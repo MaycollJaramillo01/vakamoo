@@ -865,6 +865,39 @@ h3 {
   display: none;
 }
 
+.form-notice {
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.form-notice a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.form-disabled fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+  opacity: 0.55;
+}
+
+.form-disabled fieldset :is(input, textarea, select, button) {
+  pointer-events: none;
+}
+
+.form-disabled .btn:disabled {
+  cursor: not-allowed;
+  opacity: 1;
+}
+
 .reservation-note {
   margin: 0;
   padding: 1rem 1.15rem;
