@@ -10,7 +10,7 @@ const { current = '/' } = Astro.props;
 
 <header class="site-header" data-header>
   <div class="container">
-    <a class="logo" href="/" aria-label={`${site.name} home`}>
+    <a class="logo" href="/" aria-label={`${site.name} home`} data-header-logo>
       <img src={site.logo} alt="" width="150" height="68" />
     </a>
 
@@ -45,12 +45,38 @@ const { current = '/' } = Astro.props;
   const header = document.querySelector('[data-header]');
   const toggle = document.querySelector('[data-nav-toggle]');
   const nav = document.querySelector('[data-nav]');
+  const heroLogo = document.querySelector('.hero-logo');
+  const headerLogo = document.querySelector('[data-header-logo]');
 
   const onScroll = () => {
     header?.classList.toggle('is-scrolled', window.scrollY > 12);
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  function setPastHeroLogo(past) {
+    header?.classList.toggle('is-past-hero', past);
+    if (!headerLogo) return;
+    if (past) {
+      headerLogo.removeAttribute('aria-hidden');
+      headerLogo.removeAttribute('tabindex');
+    } else {
+      headerLogo.setAttribute('aria-hidden', 'true');
+      headerLogo.setAttribute('tabindex', '-1');
+    }
+  }
+
+  if (heroLogo && header) {
+    const headerH = header.getBoundingClientRect().height;
+    const logoWatch = new IntersectionObserver(
+      ([entry]) => {
+        setPastHeroLogo(!entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: `-${headerH}px 0px 0px 0px` }
+    );
+    logoWatch.observe(heroLogo);
+    setPastHeroLogo(heroLogo.getBoundingClientRect().bottom <= headerH);
+  }
 
   function setNavOpen(open) {
     nav?.classList.toggle('is-open', open);

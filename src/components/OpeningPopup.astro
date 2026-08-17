@@ -1,0 +1,91 @@
+---
+import { site, grandOpening } from '../data/site';
+
+const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
+---
+
+<div class="opening-root" data-opening-root hidden>
+  <div class="opening-backdrop" data-opening-backdrop></div>
+  <div
+    class="opening-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="opening-title"
+    data-opening-panel
+  >
+    <button type="button" class="opening-close" data-opening-close aria-label="Close">
+      ×
+    </button>
+    <p class="opening-kicker">{grandOpening.eyebrow}</p>
+    <h2 id="opening-title">
+      <span class="opening-month">August</span>
+      <span class="opening-day">27</span>
+    </h2>
+    <p class="opening-note">{grandOpening.note}</p>
+    <p class="opening-hours">{grandOpening.hours}</p>
+    <div class="opening-actions">
+      <a class="btn" href={phoneHref} data-opening-close>{grandOpening.cta}</a>
+      <button type="button" class="btn btn-ghost" data-opening-close>Continue</button>
+    </div>
+    <a class="opening-phone" href={phoneHref}>{site.phone}</a>
+  </div>
+</div>
+
+<script>
+  import { createFocusTrap } from '../scripts/focus-trap.js';
+
+  const KEY = 'vakamoo-grand-opening-2026-08-27';
+  const root = document.querySelector('[data-opening-root]');
+
+  function signalReady() {
+    root?.setAttribute('data-ready', '');
+    document.dispatchEvent(new CustomEvent('vakamoo:opening-ready'));
+  }
+
+  if (root) {
+    const panel = root.querySelector('[data-opening-panel]');
+    const trap = panel ? createFocusTrap(panel) : null;
+
+    function hide() {
+      try {
+        localStorage.setItem(KEY, '1');
+      } catch {
+        /* ignore */
+      }
+      trap?.deactivate();
+      root.hidden = true;
+      document.body.classList.remove('opening-open');
+      signalReady();
+    }
+
+    function show() {
+      root.hidden = false;
+      document.body.classList.add('opening-open');
+      const closeBtn = root.querySelector('[data-opening-close]');
+      trap?.activate(closeBtn);
+    }
+
+    root.querySelectorAll('[data-opening-close]').forEach((el) => {
+      el.addEventListener('click', hide);
+    });
+    root.querySelector('[data-opening-backdrop]')?.addEventListener('click', hide);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !root.hidden) hide();
+    });
+
+    let seen = false;
+    try {
+      seen = localStorage.getItem(KEY) === '1';
+    } catch {
+      seen = false;
+    }
+
+    if (seen) {
+      signalReady();
+    } else {
+      show();
+    }
+  } else {
+    document.dispatchEvent(new CustomEvent('vakamoo:opening-ready'));
+  }
+</script>

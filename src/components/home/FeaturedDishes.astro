@@ -1,9 +1,8 @@
 ---
-import DishList from '../DishList.astro';
 import { dishes } from '../../data/site';
 ---
 
-<section class="section section-tight-top">
+<section class="section featured-section">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">Our Menu</p>
@@ -14,8 +13,19 @@ import { dishes } from '../../data/site';
       </p>
     </div>
 
-    <div class="reveal">
-      <DishList dishes={dishes} />
+    <div class="featured-grid reveal">
+      {
+        dishes.map((dish) => (
+          <article class="featured-card">
+            <div class="featured-card-media">
+              <img src={dish.image} alt={dish.name} width="640" height="800" loading="lazy" />
+              <span class="featured-card-price">{dish.price}</span>
+            </div>
+            <h3>{dish.name}</h3>
+            <p>{dish.description}</p>
+          </article>
+        ))
+      }
     </div>
 
     <div class="stack-lg reveal">

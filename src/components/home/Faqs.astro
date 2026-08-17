@@ -14,9 +14,12 @@ import { faqs } from '../../data/site';
     </div>
     <div class="faq-list">
       {
-        faqs.map((item) => (
+        faqs.map((item, i) => (
           <details class="faq-item">
-            <summary>{item.q}</summary>
+            <summary>
+              <span class="faq-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="faq-q">{item.q}</span>
+            </summary>
             <p>{item.a}</p>
           </details>
         ))

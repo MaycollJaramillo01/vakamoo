@@ -9,6 +9,7 @@ const { eyebrow, title, lead } = Astro.props;
 ---
 
 <section class="page-hero">
+  <div class="page-hero-rule" aria-hidden="true"></div>
   <div class="container reveal">
     {eyebrow && <p class="eyebrow">{eyebrow}</p>}
     <h1 set:html={title} />

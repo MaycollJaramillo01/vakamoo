@@ -22,6 +22,14 @@ export const site = {
     import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY || '6Lf2jH8tAAAAANXzshkbk5WxBTR7W1UCwJXJsJiJ',
 };
 
+export const grandOpening = {
+  eyebrow: 'Grand Opening',
+  date: 'August 27',
+  note: 'Reservations by phone only.',
+  hours: '10 AM – 5 PM',
+  cta: 'Call to Reserve',
+};
+
 export const nav = [
   { href: '/', label: 'Home' },
   { href: '/menu/', label: 'Menu' },
