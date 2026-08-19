@@ -480,7 +480,7 @@ export const menuCategoriesFull: MenuCategory[] = [
     label: 'Kids',
     items: [
       {
-        name: 'Chiqui Roll',
+        name: 'Pikachu Roll',
         price: '$10',
         description: 'Chicken Tempura, Bacon & Sweet Plantains',
       },
