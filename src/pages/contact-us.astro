@@ -62,41 +62,49 @@ const mapQuery = encodeURIComponent(`${site.address} ${site.addressLine2}`);
 
       <div class="reveal">
         <ArchFrame class="form-frame">
-          <form class="form form-in-arch form-disabled" aria-disabled="true">
-            <fieldset disabled>
+          <form
+            class="form form-in-arch"
+            method="POST"
+            action="https://formsubmit.co/info@vakamoo.com"
+            data-recaptcha-form
+            data-recaptcha-action="contact_form"
+          >
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_subject" value="VAKAMOO Contact Form" />
+            <input type="hidden" name="_next" value="https://vakamoo.com/contact-us/?sent=1" />
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" hidden />
               <div class="form-row">
                 <div class="field">
                   <label for="name">Name</label>
-                  <input id="name" name="name" type="text" placeholder="Your full name" />
+                  <input id="name" name="name" type="text" placeholder="Your full name" required />
                 </div>
                 <div class="field">
                   <label for="email">Email</label>
-                  <input id="email" name="email" type="email" placeholder="Email" />
+                  <input id="email" name="email" type="email" placeholder="Email" required />
                 </div>
               </div>
               <div class="form-row">
                 <div class="field">
                   <label for="phone">Phone</label>
-                  <input id="phone" name="phone" type="tel" placeholder="Phone number" />
+                  <input id="phone" name="phone" type="tel" placeholder="Phone number" required />
                 </div>
                 <div class="field">
                   <label for="subject">Subject</label>
-                  <input id="subject" name="subject" type="text" placeholder="Subject" />
+                  <input id="subject" name="subject" type="text" placeholder="Subject" required />
                 </div>
               </div>
               <div class="field">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Message"></textarea>
+                <textarea id="message" name="message" placeholder="Message" required></textarea>
               </div>
               <label class="check">
-                <input type="checkbox" name="privacy_accepted" value="yes" />
+                <input type="checkbox" name="privacy_accepted" value="yes" required />
                 <span>
                   I have read and agree to the{' '}
                   <a href="/privacy-policy/" class="link-underline">Privacy Policy</a>.
                 </span>
               </label>
-              <button class="btn" type="button" disabled>Send Message</button>
-            </fieldset>
+              <button class="btn" type="submit">Send Message</button>
           </form>
         </ArchFrame>
       </div>

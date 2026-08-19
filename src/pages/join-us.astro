@@ -19,26 +19,36 @@ import { site, positions } from '../data/site';
   <section class="section">
     <div class="container form-narrow">
       <ArchFrame class="form-frame reveal">
-        <form class="form form-in-arch form-disabled" aria-disabled="true">
-          <fieldset disabled>
+        <form
+          class="form form-in-arch"
+          method="POST"
+          action="https://formsubmit.co/info@vakamoo.com"
+          enctype="multipart/form-data"
+          data-recaptcha-form
+          data-recaptcha-action="careers_form"
+        >
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" value="VAKAMOO Careers Form" />
+          <input type="hidden" name="_next" value="https://vakamoo.com/join-us/?sent=1" />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" hidden />
             <div class="form-row">
               <div class="field">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" />
+                <input id="name" name="name" type="text" required />
               </div>
               <div class="field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" />
+                <input id="email" name="email" type="email" required />
               </div>
             </div>
             <div class="form-row">
               <div class="field">
                 <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" />
+                <input id="phone" name="phone" type="tel" required />
               </div>
               <div class="field">
                 <label for="position">Position</label>
-                <select id="position" name="position">
+                <select id="position" name="position" required>
                   <option value="">Select a role</option>
                   {positions.map((p) => <option value={p}>{p}</option>)}
                 </select>
@@ -50,17 +60,16 @@ import { site, positions } from '../data/site';
             </div>
             <div class="field">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us a little about yourself"></textarea>
+              <textarea id="message" name="message" placeholder="Tell us a little about yourself" required></textarea>
             </div>
             <label class="check">
-              <input type="checkbox" name="privacy_accepted" value="yes" />
+              <input type="checkbox" name="privacy_accepted" value="yes" required />
               <span>
                 I have read and agree to the{' '}
                 <a href="/privacy-policy/" class="link-underline">Privacy Policy</a>.
               </span>
             </label>
-            <button class="btn" type="button" disabled>Submit Application</button>
-          </fieldset>
+            <button class="btn" type="submit">Submit Application</button>
         </form>
       </ArchFrame>
     </div>

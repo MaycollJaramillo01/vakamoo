@@ -146,7 +146,7 @@ export const menuCategoriesFull: MenuCategory[] = [
           'Lobster Meat, Shrimp Tempura, Sweet Plantains, Avocado, Kani, Ninja Sauce with Guacamole & Chips',
       },
       {
-        name: 'Vakamoo',
+        name: 'VakaMoo',
         price: '$20',
         description:
           'Chicken Tempura, Mozzarella, Bacon, Sweet Plantains, Deep Fried in Doritos, Guacamole & Ropa Vieja',
@@ -510,7 +510,7 @@ export const menuCategoriesFull: MenuCategory[] = [
         description: 'Deep fried, creamy cheesecake.',
       },
       {
-        name: 'Taro Cheesecake',
+        name: 'Taro Cake',
         price: '$12',
       },
       {
