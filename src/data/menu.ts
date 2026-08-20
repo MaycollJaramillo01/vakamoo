@@ -42,7 +42,7 @@ export const menuCategoriesFull: MenuCategory[] = [
           'A trio of crispy rice baskets with a kiss of sweet chili, filled with fresh guacamole and your choice of Ropa Vieja, Shrimp, or Shredded Chicken Teriyaki — small bites, big flavor.',
       },
       {
-        name: "Daddy’s Mofonguitos",
+        name: 'VakaMoo Mofonguitos',
         price: '$16',
         description:
           'Crispy fried yucca baskets filled with your choice of Ropa Vieja, Shrimp, or Teriyaki Chicken, blending Caribbean crunch with bold Asian flavor.',
