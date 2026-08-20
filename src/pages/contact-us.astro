@@ -38,7 +38,11 @@ const mapQuery = encodeURIComponent(`${site.address} ${site.addressLine2}`);
         </div>
         <div>
           <h3>Location</h3>
-          <p>{site.address}<br />{site.addressLine2}</p>
+          <p>
+            <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer">
+              {site.address}<br />{site.addressLine2}
+            </a>
+          </p>
         </div>
         <div>
           <h3>Email</h3>

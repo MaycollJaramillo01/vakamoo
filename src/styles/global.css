@@ -1527,9 +1527,11 @@ body.has-hero .site-header.is-past-hero .logo {
   border: 1px solid var(--line);
   border-radius: 0;
   color: var(--ink);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.social a svg {
+  display: block;
 }
 
 .social a:hover {

@@ -6,6 +6,7 @@ export const site = {
   email: 'info@vakamoo.com',
   address: '6300 Georgetown town Blvd. Suite 103',
   addressLine2: 'Eldersburg MD 21784',
+  mapsUrl: 'https://maps.app.goo.gl/j2ZSAm9z6TP3E4UZ6',
   description:
     'Japanese & Caribbean Fusion — Two cultures. One Kitchen. Endless flavor. Perfect blend of Sushi and Sazón in Eldersburg, MD.',
   social: {
@@ -103,6 +104,7 @@ export const menuCategories = [
   { label: 'Salads & Soups', href: '/menu/?cat=salads-soups' },
   { label: 'Kids', href: '/menu/?cat=kids' },
   { label: 'Desserts', href: '/menu/?cat=desserts' },
+  { label: 'Beverages', href: '/menu/?cat=beverages' },
 ];
 
 export const chefBio = {

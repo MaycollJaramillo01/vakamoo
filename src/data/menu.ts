@@ -76,24 +76,11 @@ export const menuCategoriesFull: MenuCategory[] = [
           'Two golden turnovers stuffed with savory ropa vieja and melty mozzarella, served with a spicy-smooth sriracha mayo aioli.',
       },
       {
-        name: 'Ceviche Mixto',
-        price: '$18',
-        description:
-          'Shrimp and white fish with onions, cilantro, lime juice, salt, and pepper.',
-        raw: true,
-      },
-      {
-        name: "Ninja’s Ceviche",
+        name: 'VakaMoo Ceviche',
         price: '$18',
         description:
           'Fresh caught white fish, calamari and shrimp cured in lime juice and peppers and thin sliced onions.',
         raw: true,
-      },
-      {
-        name: 'Mofonguitos de Churrasco',
-        price: '$16',
-        description:
-          'Crispy fried plantain baskets topped with creamy guacamole, tender skirt steak, and chimichurri — a Latin steakhouse bite, Ninja style.',
       },
       {
         name: 'Hamachi Jalapeño',
@@ -152,22 +139,12 @@ export const menuCategoriesFull: MenuCategory[] = [
           'Chicken Tempura, Mozzarella, Bacon, Sweet Plantains, Deep Fried in Doritos, Guacamole & Ropa Vieja',
       },
       {
-        name: 'Suchikito Roll',
-        price: '$16',
-        description: 'Chicken Tempura, Queso Frito, Sweet Plantains, Sweet Asian Beef',
-      },
-      {
         name: 'El Bukele Roll',
         price: '$16',
         description: 'Chicken Tempura, Cream Cheese, Sweet Plantains, Guacamole & Chicharrón',
       },
       {
-        name: 'Uyyy Roll',
-        price: '$18',
-        description: 'Shrimp Tempura, Queso Frito, Avocado, Sweet Asian Beef',
-      },
-      {
-        name: 'Catrachito Roll',
+        name: 'Chiquis Roll',
         price: '$17',
         description: 'Salami, Queso Frito, Sweet Plantains, Guacamole, Sweet Asian Beef & Chimichurri',
       },
@@ -274,12 +251,6 @@ export const menuCategoriesFull: MenuCategory[] = [
         raw: true,
       },
       {
-        name: 'Hana Roll',
-        price: '$16',
-        description: 'Tuna Tartar, Cucumber, Avocado, Mango, Jalapeño',
-        raw: true,
-      },
-      {
         name: 'Aloha Roll',
         price: '$16',
         description: 'Spicy Tuna, Kani, Avocado, Pineapple',
@@ -355,12 +326,6 @@ export const menuCategoriesFull: MenuCategory[] = [
           'A whole crispy fried red snapper, served traditional-style with golden tostones and a fresh house salad — inspired by the coastal kitchens of Samaná.',
       },
       {
-        name: 'Langosta Rellena',
-        price: 'Market Price',
-        description:
-          'Whole lobster, stuffed with mixed seafood and finished in a luscious coconut cream sauce. Served with yucca mash for a rich island indulgence.',
-      },
-      {
         name: "Ninja’s Ribeye",
         price: '$55',
         description:
@@ -399,18 +364,6 @@ export const menuCategoriesFull: MenuCategory[] = [
           'Tender grilled chicken glazed in a rich, house-made teriyaki sauce, served alongside asparagus and sweet fried plantains for a perfect balance of sweet and umami-packed flavor.',
       },
       {
-        name: 'Ninja Bento — Chicken Teriyaki',
-        price: '$22',
-      },
-      {
-        name: 'Ninja Bento — Beef Teriyaki',
-        price: '$24',
-      },
-      {
-        name: 'Ninja Bento — Shrimp Teriyaki',
-        price: '$26',
-      },
-      {
         name: 'Ninja Chofan',
         price: '$15+',
         description:
@@ -423,39 +376,16 @@ export const menuCategoriesFull: MenuCategory[] = [
           'Japanese stir-fried noodles with choice of Chicken +$6 · Shrimp +$8 · Churrasco +$8',
       },
       {
-        name: 'Arroz con Marisco',
-        price: '$35',
-        description:
-          'A rich and fragrant Spanish-style saffron rice dish loaded with calamari, shrimp, octopus, and mussels.',
-      },
-      {
-        name: 'Bandeja La Parcerita',
-        price: '$30',
-        description:
-          'Steak, white rice, red beans, maduro, avocado, chicharrón, fried egg & longaniza.',
-      },
-      {
-        name: 'Bandeja La Domi',
-        price: '$30',
-        description: 'Braised beef, white rice, red beans, avocado, chicharrón & yucca fries.',
-      },
-      {
-        name: 'Bandeja La Bori',
-        price: '$30',
-        description:
-          'Pernil, grilled chicken, white rice, black beans, avocado, caramelized onions & tostones.',
-      },
-      {
-        name: 'Bandeja La Chamita',
-        price: '$30',
-        description: 'Ropa Vieja, white rice, black beans, avocado, arepita, maduros & fried egg.',
-      },
-      {
         name: 'Sides',
         price: '$7',
         description:
           'Rice & Beans · Tostones · Maduros · Veggies · French Fries · Yucca Fries · Yucca Mash · Mashed Potatoes',
       },
+      { name: 'Mofongo Side', price: '$10' },
+      { name: 'Eel Sauce', price: '$2' },
+      { name: 'Avocado', price: '$4' },
+      { name: 'Ninja Sauce', price: '$2' },
+      { name: 'Shrimp', price: '$13' },
     ],
   },
   {
@@ -526,6 +456,49 @@ export const menuCategoriesFull: MenuCategory[] = [
       {
         name: 'Ice Cream',
         price: '$4',
+      },
+    ],
+  },
+  {
+    id: 'beverages',
+    label: 'Beverages',
+    items: [
+      {
+        name: 'Bob Morirsoñando',
+        price: '$8',
+      },
+      {
+        name: 'Sodas — Coca-Cola Products',
+        price: '$4',
+        description: 'Sprite · Diet · Orange · Ginger Ale · Cranberry',
+      },
+      {
+        name: 'Piña Colada',
+        price: '$9',
+      },
+      {
+        name: 'Apple Juice',
+        price: '$3',
+      },
+      {
+        name: 'Lemonade',
+        price: '$7',
+      },
+      {
+        name: 'Passion Fruit',
+        price: '$7',
+      },
+      {
+        name: 'Strawberry Lemonade',
+        price: '$7',
+      },
+      {
+        name: 'Perrier Water 25 oz',
+        price: '$10',
+      },
+      {
+        name: 'Pana Water 33 oz',
+        price: '$10',
       },
     ],
   },
