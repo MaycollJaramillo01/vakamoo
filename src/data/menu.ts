@@ -42,7 +42,7 @@ export const menuCategoriesFull: MenuCategory[] = [
           'A trio of crispy rice baskets with a kiss of sweet chili, filled with fresh guacamole and your choice of Ropa Vieja, Shrimp, or Shredded Chicken Teriyaki — small bites, big flavor.',
       },
       {
-        name: 'VakaMoo Mofonguitos',
+        name: 'Moo Mofonguitos',
         price: '$16',
         description:
           'Crispy fried yucca baskets filled with your choice of Ropa Vieja, Shrimp, or Teriyaki Chicken, blending Caribbean crunch with bold Asian flavor.',
@@ -133,7 +133,7 @@ export const menuCategoriesFull: MenuCategory[] = [
           'Lobster Meat, Shrimp Tempura, Sweet Plantains, Avocado, Kani, Ninja Sauce with Guacamole & Chips',
       },
       {
-        name: 'VakaMoo',
+        name: 'El Chapo',
         price: '$20',
         description:
           'Chicken Tempura, Mozzarella, Bacon, Sweet Plantains, Deep Fried in Doritos, Guacamole & Ropa Vieja',
