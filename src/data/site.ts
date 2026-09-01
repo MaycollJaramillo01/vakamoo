@@ -23,12 +23,16 @@ export const site = {
     import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY || '6Lf2jH8tAAAAANXzshkbk5WxBTR7W1UCwJXJsJiJ',
 };
 
-export const grandOpening = {
-  eyebrow: 'Grand Opening',
-  date: 'August 27',
-  note: 'Reservations by phone only.',
-  hours: '10 AM – 5 PM',
-  cta: 'Call to Reserve',
+export const closureNotice = {
+  eyebrow: 'Notice',
+  title: 'We Are Closed',
+  intro: 'Please note that our restaurant will be closed on the following day:',
+  date: 'Monday, September 7th',
+  resume: 'We will resume normal business hours following this date.',
+  apology: 'We apologize for any inconvenience.',
+  thanks: 'Thank you for your understanding!',
+  /** Hidden starting this calendar day in America/New_York (one day after the closure). */
+  hideFrom: '2026-09-08',
 };
 
 export const nav = [
@@ -101,10 +105,11 @@ export const menuCategories = [
   { label: 'Ninja Platters', href: '/menu/?cat=ninja-platters' },
   { label: 'Traditional Rolls', href: '/menu/?cat=traditional-rolls' },
   { label: 'Main Courses', href: '/menu/?cat=main-courses' },
+  { label: 'Sides', href: '/menu/?cat=sides' },
   { label: 'Salads & Soups', href: '/menu/?cat=salads-soups' },
   { label: 'Kids', href: '/menu/?cat=kids' },
   { label: 'Desserts', href: '/menu/?cat=desserts' },
-  { label: 'Beverages', href: '/menu/?cat=beverages' },
+  { label: 'Soft Drinks', href: '/menu/?cat=beverages' },
 ];
 
 export const chefBio = {

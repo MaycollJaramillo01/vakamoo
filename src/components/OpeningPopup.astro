@@ -1,10 +1,8 @@
 ---
-import { site, grandOpening } from '../data/site';
-
-const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
+import { closureNotice } from '../data/site';
 ---
 
-<div class="opening-root" data-opening-root hidden>
+<div class="opening-root" data-opening-root data-hide-from={closureNotice.hideFrom} hidden>
   <div class="opening-backdrop" data-opening-backdrop></div>
   <div
     class="opening-panel"
@@ -13,29 +11,38 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
     aria-labelledby="opening-title"
     data-opening-panel
   >
-    <button type="button" class="opening-close" data-opening-close aria-label="Close">
-      ×
-    </button>
-    <p class="opening-kicker">{grandOpening.eyebrow}</p>
-    <h2 id="opening-title">
-      <span class="opening-month">August</span>
-      <span class="opening-day">27</span>
-    </h2>
-    <p class="opening-note">{grandOpening.note}</p>
-    <p class="opening-hours">{grandOpening.hours}</p>
-    <div class="opening-actions">
-      <a class="btn" href={phoneHref} data-opening-close>{grandOpening.cta}</a>
-      <button type="button" class="btn btn-ghost" data-opening-close>Continue</button>
+    <div class="opening-inner">
+      <button type="button" class="opening-close" data-opening-close aria-label="Close">
+        ×
+      </button>
+      <p class="opening-kicker">{closureNotice.eyebrow}</p>
+      <h2 id="opening-title">{closureNotice.title}</h2>
+      <p class="opening-intro">{closureNotice.intro}</p>
+      <div class="opening-date-box">
+        <p class="opening-date">{closureNotice.date}</p>
+      </div>
+      <p class="opening-resume">{closureNotice.resume}</p>
+      <p class="opening-apology">{closureNotice.apology}</p>
+      <p class="opening-thanks">{closureNotice.thanks}</p>
     </div>
-    <a class="opening-phone" href={phoneHref}>{site.phone}</a>
   </div>
 </div>
 
 <script>
   import { createFocusTrap } from '../scripts/focus-trap.js';
 
-  const KEY = 'vakamoo-grand-opening-2026-08-27';
+  const KEY = 'vakamoo-closed-2026-09-07';
+  const TIMEZONE = 'America/New_York';
   const root = document.querySelector('[data-opening-root]');
+
+  function todayStamp() {
+    return new Intl.DateTimeFormat('en-CA', {
+      timeZone: TIMEZONE,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).format(new Date());
+  }
 
   function signalReady() {
     root?.setAttribute('data-ready', '');
@@ -45,6 +52,8 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
   if (root) {
     const panel = root.querySelector('[data-opening-panel]');
     const trap = panel ? createFocusTrap(panel) : null;
+    const hideFrom = root.getAttribute('data-hide-from');
+    const expired = Boolean(hideFrom && todayStamp() >= hideFrom);
 
     function hide() {
       try {
@@ -80,7 +89,7 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
       seen = false;
     }
 
-    if (seen) {
+    if (expired || seen) {
       signalReady();
     } else {
       show();

@@ -65,6 +65,7 @@ import { menuCategoriesFull } from '../data/menu';
               hidden={i !== 0}
             >
               {cat.note && <p class="menu-note">{cat.note}</p>}
+              {cat.items.length > 0 && (
               <div class="menu-items">
                 {cat.items.map((item) => (
                   <article class="menu-item">
@@ -86,6 +87,7 @@ import { menuCategoriesFull } from '../data/menu';
                   </article>
                 ))}
               </div>
+              )}
             </div>
           ))
         }

@@ -39,10 +39,10 @@ export const menuCategoriesFull: MenuCategory[] = [
         name: "Ninja’s Conconcitos",
         price: '$16',
         description:
-          'A trio of crispy rice baskets with a kiss of sweet chili, filled with fresh guacamole and your choice of Ropa Vieja, Shrimp, or Shredded Chicken Teriyaki — small bites, big flavor.',
+          'A trio of crispy rice baskets with a kiss of sweet chili, filled with fresh guacamole and your choice of Ropa Vieja, Shrimp, or Shredded Chicken — small bites, big flavor.',
       },
       {
-        name: 'Moo Mofonguitos',
+        name: 'Moo-Mofonguitos',
         price: '$16',
         description:
           'Crispy fried yucca baskets filled with your choice of Ropa Vieja, Shrimp, or Teriyaki Chicken, blending Caribbean crunch with bold Asian flavor.',
@@ -70,16 +70,10 @@ export const menuCategoriesFull: MenuCategory[] = [
           'Grilled octopus marinated in garlic teriyaki, served with crispy papas bravas and a drizzle of bold chimichurri — smoky, tender, unforgettable.',
       },
       {
-        name: "Ninja’s Empanadas",
-        price: '$16',
-        description:
-          'Two golden turnovers stuffed with savory ropa vieja and melty mozzarella, served with a spicy-smooth sriracha mayo aioli.',
-      },
-      {
-        name: 'VakaMoo Ceviche',
+        name: "Ninja’s Ceviche",
         price: '$18',
         description:
-          'Fresh caught white fish, calamari and shrimp cured in lime juice and peppers and thin sliced onions.',
+          'Shrimps and white fish ceviche topped with fried seafood in a ceviche sauce, accompanied by malanga chips.',
         raw: true,
       },
       {
@@ -133,7 +127,7 @@ export const menuCategoriesFull: MenuCategory[] = [
           'Lobster Meat, Shrimp Tempura, Sweet Plantains, Avocado, Kani, Ninja Sauce with Guacamole & Chips',
       },
       {
-        name: 'El Chapo',
+        name: 'El Chapo Roll',
         price: '$20',
         description:
           'Chicken Tempura, Mozzarella, Bacon, Sweet Plantains, Deep Fried in Doritos, Guacamole & Ropa Vieja',
@@ -144,7 +138,7 @@ export const menuCategoriesFull: MenuCategory[] = [
         description: 'Chicken Tempura, Cream Cheese, Sweet Plantains, Guacamole & Chicharrón',
       },
       {
-        name: 'Chiquis Roll',
+        name: "Chiqui's Roll",
         price: '$17',
         description: 'Salami, Queso Frito, Sweet Plantains, Guacamole, Sweet Asian Beef & Chimichurri',
       },
@@ -246,7 +240,7 @@ export const menuCategoriesFull: MenuCategory[] = [
       },
       {
         name: 'Baltimore Roll',
-        price: '$16',
+        price: '$14',
         description: 'Kani, Cucumber, Cream Cheese, Sweet Plantains, Guacamole, Crab Meat',
         raw: true,
       },
@@ -309,7 +303,7 @@ export const menuCategoriesFull: MenuCategory[] = [
       },
       {
         name: 'Salmon in Paradise',
-        price: '$36',
+        price: '$38',
         description:
           'Succulent grilled salmon paired with sautéed shrimp, served over mashed potatoes and vegetables, all brought together by a vibrant passion fruit sauce.',
       },
@@ -340,22 +334,22 @@ export const menuCategoriesFull: MenuCategory[] = [
       {
         name: 'Ninja Fongo — Camarones',
         price: '$30',
-        description: 'Our signature mofongo made your way — with shrimp.',
+        description: 'Our signature taste — mofongo made your way, with shrimp.',
       },
       {
         name: 'Ninja Fongo — Churrasco',
         price: '$36',
-        description: 'Our signature mofongo made your way — with skirt steak.',
+        description: 'Our signature taste — mofongo made your way, with skirt steak.',
       },
       {
         name: 'Ninja Fongo — Pollo',
         price: '$26',
-        description: 'Our signature mofongo made your way — with chicken.',
+        description: 'Our signature taste — mofongo made your way, with chicken.',
       },
       {
         name: 'Ninja Fongo — Marisco',
         price: '$38',
-        description: 'Our signature mofongo made your way — with seafood mix.',
+        description: 'Our signature taste — mofongo made your way, with seafood mix.',
       },
       {
         name: 'Chicken Teriyaki',
@@ -375,17 +369,20 @@ export const menuCategoriesFull: MenuCategory[] = [
         description:
           'Japanese stir-fried noodles with choice of Chicken +$6 · Shrimp +$8 · Churrasco +$8',
       },
-      {
-        name: 'Sides',
-        price: '$7',
-        description:
-          'Rice & Beans · Tostones · Maduros · Veggies · French Fries · Yucca Fries · Yucca Mash · Mashed Potatoes',
-      },
-      { name: 'Mofongo Side', price: '$10' },
-      { name: 'Eel Sauce', price: '$2' },
-      { name: 'Avocado', price: '$4' },
-      { name: 'Ninja Sauce', price: '$2' },
-      { name: 'Shrimp', price: '$13' },
+    ],
+  },
+  {
+    id: 'sides',
+    label: 'Sides',
+    items: [
+      { name: 'Rice & Beans', price: '$7' },
+      { name: 'Tostones', price: '$7' },
+      { name: 'Maduros', price: '$7' },
+      { name: 'Veggies', price: '$7' },
+      { name: 'French Fries', price: '$7' },
+      { name: 'Yucca Fries', price: '$7' },
+      { name: 'Yucca Mash', price: '$7' },
+      { name: 'Mashed Potatoes', price: '$7' },
     ],
   },
   {
@@ -401,7 +398,7 @@ export const menuCategoriesFull: MenuCategory[] = [
         name: 'House Salad',
         price: '$12',
         description:
-          'Plain house salad. Add-ons: Chicken +$8 · Skirt Steak +$15 · Shrimp +$15.',
+          'Mixed greens, onions, peppers, carrots, dressed in Asian raspberry vinaigrette.',
       },
     ],
   },
@@ -415,91 +412,29 @@ export const menuCategoriesFull: MenuCategory[] = [
         description: 'Chicken Tempura, Bacon & Sweet Plantains',
       },
       { name: 'Chicken Fingers & French Fries', price: '$10' },
-      {
-        name: 'Cheese Burger & French Fries',
-        price: '$10',
-        description: 'Add bacon +$3.',
-      },
+      { name: 'Hamburger & French Fries', price: '$10' },
     ],
   },
   {
     id: 'desserts',
     label: 'Desserts',
-    items: [
-      {
-        name: 'Passion Fruit Tres Leches',
-        price: '$12',
-      },
-      {
-        name: 'Flan',
-        price: '$10',
-      },
-      {
-        name: 'Tempura Cheesecake with Matcha Cream',
-        price: '$13',
-        description: 'Deep fried, creamy cheesecake.',
-      },
-      {
-        name: 'Taro Cake',
-        price: '$12',
-      },
-      {
-        name: 'Lava Cake',
-        price: '$12',
-        description: 'With vanilla ice cream.',
-      },
-      {
-        name: 'Banana Tempura with Vanilla Ice Cream',
-        price: '$12',
-        description: 'Deep fried bananas covered with corn flakes, served with ice cream.',
-      },
-      {
-        name: 'Ice Cream',
-        price: '$4',
-      },
-    ],
+    note: 'To be decided.',
+    items: [],
   },
   {
     id: 'beverages',
-    label: 'Beverages',
+    label: 'Soft Drinks',
     items: [
-      {
-        name: 'Bob Morirsoñando',
-        price: '$8',
-      },
-      {
-        name: 'Sodas — Coca-Cola Products',
-        price: '$4',
-        description: 'Sprite · Diet · Orange · Ginger Ale · Cranberry',
-      },
-      {
-        name: 'Piña Colada',
-        price: '$9',
-      },
-      {
-        name: 'Apple Juice',
-        price: '$3',
-      },
-      {
-        name: 'Lemonade',
-        price: '$7',
-      },
-      {
-        name: 'Passion Fruit',
-        price: '$7',
-      },
-      {
-        name: 'Strawberry Lemonade',
-        price: '$7',
-      },
-      {
-        name: 'Perrier Water 25 oz',
-        price: '$10',
-      },
-      {
-        name: 'Pana Water 33 oz',
-        price: '$10',
-      },
+      { name: 'Boba Morirsonando', price: '$8' },
+      { name: 'Sodas', price: '$4' },
+      { name: 'Cranberry Juice', price: '$3' },
+      { name: 'Piña Colada', price: '$9' },
+      { name: 'Apple Juice', price: '$3' },
+      { name: 'Lemonade', price: '$7' },
+      { name: 'Passionfruit', price: '$7' },
+      { name: 'Strawberry Lemonade', price: '$7' },
+      { name: 'Perrier Water 25 oz', price: '$10' },
+      { name: 'Panna Water 33 oz', price: '$10' },
     ],
   },
 ];
