@@ -33,20 +33,17 @@ export const dishes = [
   {
     name: 'Mar y Tierra',
     price: '$60',
-    image: '/media/dishes/mar-y-tierra.jpg',
     description:
       'The ultimate surf and turf experience. A juicy 10 oz grilled Churrasco steak, paired with tender sautéed shrimp and a succulent lobster tail, served over creamy yucca mash and seasonal vegetables. Finished with a generous drizzle of our signature Ninja Sauce.',
   },
   {
     name: 'Karol G Roll',
     price: '$17',
-    image: '/media/dishes/karol-g-roll.jpg',
     description: 'Shrimp Tempura, Cream Cheese, Sweet Plantains, Guacamole & Ropa Vieja',
   },
   {
     name: 'El Final',
     price: '$16',
-    image: '/media/dishes/el-final.jpg',
     description:
       "Chef Ninja’s signature tower of flavor: your choice of grilled chicken or steak, layered with sweet fried maduros, fresh avocado slices, and topped with vibrant passionfruit (chinola) sauce and pico de gallo.",
   },

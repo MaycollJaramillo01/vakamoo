@@ -45,7 +45,7 @@ export const menuCategoriesFull: MenuCategory[] = [
         name: 'Moo-Mofonguitos',
         price: '$16',
         description:
-          'Crispy fried yucca baskets filled with your choice of Ropa Vieja, Shrimp, or Teriyaki Chicken, blending Caribbean crunch with bold Asian flavor.',
+          'Crispy fried yucca baskets filled with your choice of Ropa Vieja, Shrimp, or Shredded Chicken, blending Caribbean crunch with bold Asian flavor.',
       },
       {
         name: 'Asian Chicharron',
@@ -70,7 +70,7 @@ export const menuCategoriesFull: MenuCategory[] = [
           'Grilled octopus marinated in garlic teriyaki, served with crispy papas bravas and a drizzle of bold chimichurri — smoky, tender, unforgettable.',
       },
       {
-        name: "Ninja’s Ceviche",
+        name: 'Vakamoo Ceviche',
         price: '$18',
         description:
           'Shrimps and white fish ceviche topped with fried seafood in a ceviche sauce, accompanied by malanga chips.',

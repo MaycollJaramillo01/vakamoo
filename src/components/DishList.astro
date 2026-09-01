@@ -2,7 +2,6 @@
 interface Dish {
   name: string;
   price: string;
-  image: string;
   description: string;
 }
 
@@ -17,7 +16,6 @@ const { dishes } = Astro.props;
   {
     dishes.map((dish) => (
       <article class="dish">
-        <img src={dish.image} alt={dish.name} width="280" height="200" loading="lazy" />
         <div>
           <h3>{dish.name}</h3>
           <p>{dish.description}</p>
