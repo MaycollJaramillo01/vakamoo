@@ -23,18 +23,6 @@ export const site = {
     import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY || '6Lf2jH8tAAAAANXzshkbk5WxBTR7W1UCwJXJsJiJ',
 };
 
-export const closureNotice = {
-  eyebrow: 'Notice',
-  title: 'We Are Closed',
-  intro: 'Please note that our restaurant will be closed on the following day:',
-  date: 'Monday, September 7th',
-  resume: 'We will resume normal business hours following this date.',
-  apology: 'We apologize for any inconvenience.',
-  thanks: 'Thank you for your understanding!',
-  /** Hidden starting this calendar day in America/New_York (one day after the closure). */
-  hideFrom: '2026-09-08',
-};
-
 export const nav = [
   { href: '/', label: 'Home' },
   { href: '/menu/', label: 'Menu' },

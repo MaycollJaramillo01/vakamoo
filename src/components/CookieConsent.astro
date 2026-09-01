@@ -196,11 +196,6 @@
       }
     }
 
-    const opening = document.querySelector('[data-opening-root]');
-    if (opening && !opening.hasAttribute('data-ready')) {
-      document.addEventListener('vakamoo:opening-ready', boot, { once: true });
-    } else {
-      boot();
-    }
+    boot();
   }
 </script>
