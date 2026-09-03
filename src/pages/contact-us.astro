@@ -21,10 +21,9 @@ const mapQuery = encodeURIComponent(`${site.address} ${site.addressLine2}`);
   <section class="section section-tight">
     <div class="container">
       <p class="reservation-note reveal" role="note">
-        <strong>Reservations:</strong> By phone only,
-        <span class="accent">10 AM – 5 PM</span>.
-        Opening weekend: limited to <span class="accent">2 hours per party</span>.
-        Call <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>.
+        <strong>Reservations:</strong>
+        <a href="https://www.opentable.com/r/vakamoo-reservations-sykesville?restref=1548472&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener" class="accent">Reserve on OpenTable</a>
+        or call <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>.
       </p>
     </div>
   </section>

@@ -15,10 +15,10 @@ export const site = {
   },
   logo: '/media/logo.png',
   favicon: '/media/favicon.png',
-  ogImage: '/media/hero.jpg',
-  heroImage: '/media/hero.jpg',
+  ogImage: '/media/hero.webp',
+  heroImage: '/media/hero.webp',
   ctaBg: '/media/cta-bg.jpg',
-  hiringBg: '/media/hiring-bg.png',
+  hiringBg: '/media/hiring-bg.webp',
   recaptchaSiteKey:
     import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY || '6Lf2jH8tAAAAANXzshkbk5WxBTR7W1UCwJXJsJiJ',
 };
@@ -72,7 +72,7 @@ export const faqs = [
   },
   {
     q: 'Can I make a reservation?',
-    a: 'Yes. Reservations are by phone only, from 10 AM to 5 PM. On opening weekend, reservations are limited to 2 hours per party.',
+    a: 'Yes! You can reserve online through OpenTable or by calling us at 410-552-8019.',
   },
   {
     q: 'Do you host private events or large groups?',
@@ -153,11 +153,9 @@ export const socialProof = {
 
 export const orderCta = {
   title: 'Experience premium flavors when you order right now.',
-  body: 'Reservations by phone only, 10 AM – 5 PM. Opening weekend: limited to 2 hours per party.',
-  cta: 'Call to Reserve',
-  get href() {
-    return `tel:${site.phone.replace(/\s/g, '')}`;
-  },
+  body: 'Reserve your table online through OpenTable or call us directly.',
+  cta: 'Reserve a Table',
+  href: 'https://www.opentable.com/r/vakamoo-reservations-sykesville?restref=1548472&lang=en-US&ot_source=Restaurant%20website',
 };
 
 export const reviews = {
