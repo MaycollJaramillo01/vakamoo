@@ -30,11 +30,13 @@ import { site } from '../../data/site';
       </p>
       <div class="hero-actions">
         <a class="btn" href="/menu/">View Menu</a>
-        <a class="btn btn-ghost" href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
+        <a
+          class="btn btn-opentable"
+          href="https://www.opentable.com/r/vakamoo-reservations-sykesville?restref=1548472&lang=en-US&ot_source=Restaurant%20website"
+          target="_blank"
+          rel="noopener"
+        >Reserve on OpenTable</a>
       </div>
-      <p class="hero-reserve-note">
-        <a href="https://www.opentable.com/r/vakamoo-reservations-sykesville?restref=1548472&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener">Reserve on OpenTable</a> · Or call {site.phone}
-      </p>
     </div>
   </div>
   <span class="hero-scroll" aria-hidden="true">Scroll</span>

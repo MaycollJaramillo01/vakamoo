@@ -212,6 +212,21 @@ h3 {
 .btn-ghost:hover {
   border-color: var(--ink);
   background: transparent;
+}
+
+/* OpenTable branded button */
+.btn-opentable {
+  background: #da3743;
+  border-color: #da3743;
+  color: #fff;
+  box-shadow: 0 0 0 2px rgba(218, 55, 67, 0.35);
+}
+
+.btn-opentable:hover {
+  background: #c22e39;
+  border-color: #c22e39;
+  box-shadow: 0 10px 28px rgba(218, 55, 67, 0.45);
+}
   color: var(--ink);
   box-shadow: none;
 }
